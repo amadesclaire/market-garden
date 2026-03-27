@@ -1,0 +1,80 @@
+zones:
+  - id: veg-01
+    name: Intensive Veg
+    type: veg
+    description: Standard market garden beds
+    beds:
+      - id: v01
+        label: V01
+        width_m: 0.75
+        length_m: 10
+        orientation: N-S
+        established_year: 2025
+        soil_notes: Sandy loam
+        irrigation_zone: 1
+      - id: v02
+        label: V02
+        width_m: 0.75
+        length_m: 10
+        orientation: N-S
+        established_year: 2025
+        soil_notes: Sandy loam
+        irrigation_zone: 1
+
+  - id: polytunnel-01
+    name: Polytunnel
+    type: polytunnel
+    description: High tunnel for heat-loving crops
+    beds:
+      - id: p01
+        label: P01
+        width_m: 0.75
+        length_m: 15
+        orientation: N-S
+        established_year: 2025
+        soil_notes: Compost enriched
+        irrigation_zone: 2
+
+  - id: orchard-01
+    name: Orchard
+    type: orchard
+    description: Mixed fruit tree rows
+    rows:
+      - id: or-01
+        label: Row 1
+        row_type: row
+        width_m: 2.0
+        length_m: 50.0
+        tree_spacing_m: 5.0
+        row_spacing_m: 6.0
+        established_year: 2025
+        trees:
+          - id: apple-discovery-01
+            plant_ref: apple-discovery
+            planted_year: 2025
+            rootstock: M26
+            position: 1
+          - id: pear-conference-01
+            plant_ref: pear-conference
+            planted_year: 2025
+            rootstock: Quince A
+            position: 2
+
+  - id: berry-01
+    name: Berry Acre
+    type: berry
+    description: Mixed berries and currants
+    rows:
+      - id: br-01
+        label: Berry Row 1
+        row_type: row
+        width_m: 1.5
+        length_m: 20.0
+        bush_spacing_m: 1.5
+        row_spacing_m: 2.5
+        established_year: 2025
+        plants:
+          - plant_ref: raspberry-autumn-bliss
+            count: 10
+          - plant_ref: blackcurrant-ben-lomond
+            count: 5

@@ -1,59 +1,26 @@
-products:
-  - id: blackcurrant-jam
-    name: Blackcurrant Jam
-    category: preserved
-    subcategory: jam
-    unit: jar_320g
-    retail_price_gbp: 5.50
-
-    production:
-      source_crops: [blackcurrant-ben-lomond, blackcurrant-ben-hope]
-      kg_fruit_per_jar: 0.28
-      other_inputs:
-        - ingredient: sugar
-          amount_kg: 0.26
-          cost_per_kg_gbp: 0.90
-        - ingredient: lemon_juice
-          amount_ml: 15
-          cost_per_litre_gbp: 1.50
-      labour_minutes_per_jar: 8
-      labour_rate_gbp_per_hour: 12
-      jar_cost_gbp: 0.45
-      lid_cost_gbp: 0.08
-      label_cost_gbp: 0.12
-
-    shelf_life_days: 365
-    storage: cool_dark
-    available_weeks: [1, 52]
-    production_season_weeks: [28, 35]
-    box_tiers: [larder, full_yarrow]
-    gift_suitable: true
-
-  - id: damson-gin
-    name: Damson Gin
-    category: preserved
-    subcategory: liqueur
-    unit: bottle_350ml
-    retail_price_gbp: 18.00
-
-    production:
-      source_crops: [damson-shropshire]
-      kg_fruit_per_bottle: 0.3
-      other_inputs:
-        - ingredient: gin
-          amount_ml: 350
-          cost_per_litre_gbp: 16.00
-        - ingredient: sugar
-          amount_g: 120
-          cost_per_kg_gbp: 0.90
-      labour_minutes_per_bottle: 5
-      steeping_weeks: 12
-      bottle_cost_gbp: 1.20
-      label_cost_gbp: 0.20
-
-    shelf_life_days: 730
-    available_weeks: [1, 52]
-    production_season_weeks: [36, 40]
-    box_tiers: [full_yarrow]
-    gift_suitable: true
-    notes: High margin, excellent Christmas gift product
+- id: prod-jam-blackcurrant
+  name: Blackcurrant Jam
+  category: preserved
+  subcategory: preserve
+  source_crops: ["blackcurrant-ben-lomond"]
+  unit: jar 300g
+  retail_price_pence: 450
+  shelf_life_days: 365
+  storage: ambient
+  available_week_start: 1
+  available_week_end: 52
+  production_season_week_start: 27
+  production_season_week_end: 32
+  box_tiers: ["larder", "full_yarrow"]
+  gift_suitable: true
+  inputs:
+    - ingredient: jar
+      cost_pence: 45
+    - ingredient: sugar
+      amount: 150
+      unit: g
+      cost_per_kg_pence: 120
+  production:
+    kg_fruit_per_unit: 0.150
+    labour_minutes_per_unit: 10
+    labour_rate_pence_per_hour: 1200

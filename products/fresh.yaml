@@ -1,50 +1,63 @@
-products:
-  - id: eggs-half-dozen
-    name: Eggs
-    category: fresh
-    unit: half_dozen
-    retail_price_gbp: 2.00
+- id: prod-tomato-cherry
+  name: Cherry Tomatoes
+  category: fresh
+  subcategory: vegetable
+  source_crops: ["tomato-sungold"]
+  unit: punnet 250g
+  retail_price_pence: 350
+  shelf_life_days: 5
+  storage: ambient
+  available_week_start: 26
+  available_week_end: 42
+  production_season_week_start: 26
+  production_season_week_end: 42
+  box_tiers: ["field", "larder", "full_yarrow"]
+  gift_suitable: false
 
-    production:
-      source: livestock_hens
-      labour_minutes_per_unit: 2
-      packaging_cost_gbp: 0.08
+- id: prod-carrot-bunch
+  name: Bunch of Carrots
+  category: fresh
+  subcategory: vegetable
+  source_crops: ["carrot-nantes"]
+  unit: bunch 500g
+  retail_price_pence: 200
+  shelf_life_days: 7
+  storage: cold
+  available_week_start: 24
+  available_week_end: 44
+  production_season_week_start: 24
+  production_season_week_end: 44
+  box_tiers: ["field", "larder", "full_yarrow"]
+  gift_suitable: false
 
-    shelf_life_days: 21
-    available_weeks: [1, 52]
-    box_tiers: [field, larder, full_yarrow]
-    notes: Rhode Island Red eggs, free range on pasture
+- id: prod-apple-discovery
+  name: Discovery Apples
+  category: fresh
+  subcategory: fruit
+  source_crops: ["apple-discovery"]
+  unit: bag 1kg
+  retail_price_pence: 350
+  shelf_life_days: 14
+  storage: cold
+  available_week_start: 33
+  available_week_end: 38
+  production_season_week_start: 33
+  production_season_week_end: 36
+  box_tiers: ["field", "larder", "full_yarrow"]
+  gift_suitable: false
 
-  - id: cut-flowers-mixed
-    name: Cut Flowers
-    category: fresh
-    subcategory: flowers
-    unit: bunch
-    retail_price_gbp: 6.00
-
-    production:
-      source_crops: [calendula-art-shades, sweet-pea-royal-mix]
-      labour_minutes_per_unit: 10
-      packaging_cost_gbp: 0.20
-
-    shelf_life_days: 7
-    available_weeks: [20, 40]
-    production_season_weeks: [20, 40]
-    box_tiers: [full_yarrow]
-
-  - id: mushroom-pack
-    name: Mixed Mushrooms
-    category: fresh
-    subcategory: mushroom
-    unit: pack_200g
-    retail_price_gbp: 3.50
-
-    production:
-      source_crops: [oyster-mushroom, shiitake]
-      labour_minutes_per_unit: 5
-      packaging_cost_gbp: 0.12
-
-    shelf_life_days: 5
-    available_weeks: [15, 44]
-    production_season_weeks: [15, 44]
-    box_tiers: [larder, full_yarrow]
+- id: prod-raspberry-punnet
+  name: Raspberries
+  category: fresh
+  subcategory: fruit
+  source_crops: ["raspberry-autumn-bliss"]
+  unit: punnet 150g
+  retail_price_pence: 300
+  shelf_life_days: 3
+  storage: cold
+  available_week_start: 33
+  available_week_end: 42
+  production_season_week_start: 33
+  production_season_week_end: 42
+  box_tiers: ["larder", "full_yarrow"]
+  gift_suitable: false

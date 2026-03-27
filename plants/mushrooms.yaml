@@ -1,80 +1,52 @@
-plants:
-  - id: oyster-mushroom
-    name: Oyster Mushroom
-    variety: Pearl
-    category: mushroom
-    family: Pleurotaceae
-    description: Fast-growing, mild flavour, straw substrate
-
-    cultivation:
-      substrate: straw
-      flush_interval_weeks: 3
-
-    yield:
-      expected_kg_per_sqm: 0.4
-      harvest_unit: weight
-      harvest_unit_size_kg: 0.2
-      harvest_frequency: weekly
-
-    requirements:
-      water: high
-      sun: shade
-      frost_tolerant: false
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    # Mushrooms don't have a seasonal growth cycle in the same way —
-    # production is continuous with correct conditions. Modelled as
-    # always-harvestable within the growing season.
-    annual_cycle:
-      - stage: off_season
-        weeks: [1, 14]
-        color_hex: "#8B7355"
-        description: Unheated house — production paused in winter
-      - stage: harvestable
-        weeks: [15, 44]
-        color_hex: "#E0D0B0"
-        description: Weekly flushes throughout growing season
-      - stage: off_season
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-  - id: shiitake
-    name: Shiitake
-    variety: Donko
-    category: mushroom
-    family: Omphalotaceae
-    description: Oak log cultivation, rich umami flavour
-
-    cultivation:
-      substrate: oak_log
-      flush_interval_weeks: 8
-
-    yield:
-      expected_kg_per_sqm: 0.2
-      harvest_unit: weight
-      harvest_unit_size_kg: 0.2
-      harvest_frequency: once
-
-    requirements:
-      water: medium
-      sun: shade
-      frost_tolerant: false
-
-    economics:
-      retail_value_per_unit_gbp: 3.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: off_season
-        weeks: [1, 14]
-        color_hex: "#8B7355"
-      - stage: harvestable
-        weeks: [15, 44]
-        color_hex: "#C09060"
-        description: Periodic flushes triggered by soaking logs
-      - stage: off_season
-        weeks: [45, 52]
-        color_hex: "#8B7355"
+- id: oyster-blue
+  name: Oyster Mushroom
+  variety: Blue
+  category: mushroom
+  family: Pleurotaceae
+  description: Fast growing, mild flavour
+  propagation: spawn
+  sow_week_start: 1
+  sow_week_end: 52
+  final_spacing_cm: 20
+  plants_per_sqm: 25.0
+  rows_per_bed: 1
+  direct_sow: true
+  support_required: false
+  weeks_to_first_harvest: 4
+  harvest_window_weeks: 4
+  succession_needed: true
+  succession_interval_weeks: 2
+  expected_kg_per_sqm: 10.0
+  harvest_unit: punnet
+  harvest_unit_size_kg: 0.200
+  harvest_frequency: weekly
+  water: high
+  sun: shade
+  frost_tolerant: false
+  polytunnel_recommended: true
+  rotation_group: mushrooms
+  years_before_return: 0
+  seed_cost_per_sqm_pence: 500
+  retail_value_per_unit_pence: 450
+  box_tiers: ["full_yarrow"]
+  growth_stages:
+    - stage: sown
+      week_offset_start: 0
+      week_offset_end: 2
+      color_hex: "#8B5A2B"
+      canopy_coverage: 0.0
+    - stage: mature
+      week_offset_start: 2
+      week_offset_end: 4
+      color_hex: "#D3D3D3"
+      canopy_coverage: 0.5
+    - stage: fruiting
+      week_offset_start: 4
+      week_offset_end: 8
+      color_hex: "#708090"
+      canopy_coverage: 1.0
+    - stage: cleared
+      week_offset_start: 8
+      week_offset_end: 999
+      color_hex: "#8B5A2B"
+      canopy_coverage: 0.0
