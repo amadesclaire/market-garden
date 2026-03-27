@@ -1,0 +1,25 @@
+zone:
+  name: Herb and Flower Garden
+  type: herb_flower
+  description: Mixed medicinal herbs, culinary herbs, and cut flowers
+
+beds:
+  - id: HF01
+    width_m: 1.2
+    length_m: 6.0
+    orientation: east-west
+    established_year: 2025
+    soil_notes: Well-drained, gritty mix for Mediterranean herbs
+
+  - id: HF02
+    width_m: 1.2
+    length_m: 6.0
+    orientation: east-west
+    established_year: 2025
+    soil_notes: Rich, moisture-retentive for cut flowers
+
+  - id: HF03
+    width_m: 1.2
+    length_m: 8.0
+    orientation: east-west
+    established_year: 2025

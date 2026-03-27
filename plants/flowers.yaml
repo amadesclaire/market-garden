@@ -1,0 +1,138 @@
+plants:
+  - id: calendula-art-shades
+    name: Calendula
+    variety: Art Shades
+    category: flower
+    family: Asteraceae
+    description: Hardy annual, orange and apricot tones, continuous cut flower
+
+    cultivation:
+      propagation: direct_sow
+      sow_week_range: [12, 20]
+      direct_sow: true
+      final_spacing_cm: 30
+      plants_per_sqm: 9
+      succession_needed: true
+      succession_interval_weeks: 4
+
+    timing:
+      weeks_to_first_harvest: 8
+      harvest_window_weeks: 16
+      succession_needed: true
+      succession_interval_weeks: 4
+
+    yield:
+      harvest_unit: bunch
+      harvest_unit_size_kg: 0.1
+      harvest_frequency: weekly
+
+    requirements:
+      water: low
+      sun: full
+      frost_tolerant: true
+
+    economics:
+      seed_cost_per_sqm_gbp: 0.30
+      retail_value_per_unit_gbp: 3.50
+      box_tiers: [full_yarrow]
+
+    growth_stages:
+      - stage: sown
+        week_offset_start: 0
+        week_offset_end: 2
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+      - stage: seedling
+        week_offset_start: 2
+        week_offset_end: 5
+        color_hex: "#90C840"
+        canopy_coverage: 0.1
+      - stage: vegetative
+        week_offset_start: 5
+        week_offset_end: 7
+        color_hex: "#70A830"
+        canopy_coverage: 0.5
+      - stage: harvestable
+        week_offset_start: 7
+        week_offset_end: 23
+        color_hex: "#E87820"
+        canopy_coverage: 0.8
+        description: Orange flowers, cut and come again
+      - stage: cleared
+        week_offset_start: 23
+        week_offset_end: 999
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+
+  - id: sweet-pea-royal-mix
+    name: Sweet Pea
+    variety: Royal Mix
+    category: flower
+    family: Leguminosae
+    description: Heavily scented cut flower, excellent for boxes
+
+    cultivation:
+      propagation: indoor_sow
+      sow_week_range: [6, 10]
+      transplant_weeks_after_sow: 6
+      final_spacing_cm: 20
+      support_required: true
+
+    timing:
+      weeks_in_propagation: 6
+      weeks_to_first_harvest: 14
+      harvest_window_weeks: 12
+      succession_needed: false
+
+    yield:
+      harvest_unit: bunch
+      harvest_unit_size_kg: 0.08
+      harvest_frequency: weekly
+
+    requirements:
+      water: medium
+      sun: full
+      frost_tolerant: false
+
+    economics:
+      seed_cost_per_plant_gbp: 0.08
+      retail_value_per_unit_gbp: 4.00
+      box_tiers: [full_yarrow]
+
+    growth_stages:
+      - stage: sown
+        week_offset_start: 0
+        week_offset_end: 2
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+      - stage: seedling
+        week_offset_start: 2
+        week_offset_end: 6
+        color_hex: "#90C840"
+        canopy_coverage: 0.05
+      - stage: establishing
+        week_offset_start: 6
+        week_offset_end: 10
+        color_hex: "#70A830"
+        canopy_coverage: 0.2
+      - stage: climbing
+        week_offset_start: 10
+        week_offset_end: 13
+        color_hex: "#50A030"
+        canopy_coverage: 0.5
+      - stage: harvestable
+        week_offset_start: 13
+        week_offset_end: 25
+        color_hex: "#C060C0"
+        canopy_coverage: 0.9
+        description: Fragrant mixed colours, harvest every 2-3 days
+      - stage: past_peak
+        week_offset_start: 25
+        week_offset_end: 27
+        color_hex: "#907090"
+        canopy_coverage: 0.6
+      - stage: cleared
+        week_offset_start: 27
+        week_offset_end: 999
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0

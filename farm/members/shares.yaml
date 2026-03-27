@@ -1,0 +1,35 @@
+tiers:
+  - id: field
+    name: Field Share
+    price_gbp: 480
+    weeks: 30
+    description: Veg, eggs, sourdough
+
+  - id: larder
+    name: Larder Share
+    price_gbp: 570
+    weeks: 30
+    description: Field plus honey, mushrooms, monthly preserve, meringues
+
+  - id: full_yarrow
+    name: Full Yarrow Share
+    price_gbp: 660
+    weeks: 30
+    description: Larder plus cut flowers, medicinal teas, limited products
+
+drop_points:
+  - id: farm
+    label: Farm pickup
+    location: Yarrow Farm, North Norfolk
+
+  - id: holt
+    label: Holt
+    location: TBC
+
+  - id: wells
+    label: Wells-next-the-Sea
+    location: TBC
+
+  - id: fakenham
+    label: Fakenham
+    location: TBC

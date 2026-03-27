@@ -1,0 +1,109 @@
+zone:
+  name: Berry Acre
+  type: berry
+
+rows:
+  - id: BR1
+    label: Strawberries PYO
+    type: bed
+    width_m: 1.2
+    length_m: 40.0
+    plant_ref: strawberry-elsanta
+    plants_per_m2: 4
+    established_year: 2025
+
+  - id: BR2
+    label: Summer Raspberries
+    type: row
+    length_m: 30.0
+    plant_ref: raspberry-glen-ample
+    cane_spacing_m: 0.4
+    row_spacing_m: 1.8
+    established_year: 2025
+
+  - id: BR3
+    label: Autumn Raspberries
+    type: row
+    length_m: 30.0
+    plant_ref: raspberry-autumn-bliss
+    cane_spacing_m: 0.4
+    row_spacing_m: 1.8
+    established_year: 2025
+
+  - id: BR4
+    label: Blackcurrants
+    type: row
+    length_m: 35.0
+    plant_ref: blackcurrant-ben-lomond
+    bush_spacing_m: 1.5
+    established_year: 2025
+    bush_count: 23
+
+  - id: BR5
+    label: Redcurrants and Whitecurrants
+    type: row
+    length_m: 20.0
+    plants:
+      - plant_ref: redcurrant-rovada
+        count: 5
+      - plant_ref: whitecurrant-white-versailles
+        count: 4
+    bush_spacing_m: 1.5
+    established_year: 2025
+
+  - id: BR6
+    label: Gooseberries
+    type: row
+    length_m: 25.0
+    plants:
+      - plant_ref: gooseberry-invicta
+        count: 6
+      - plant_ref: gooseberry-hinnonmaki-red
+        count: 5
+      - plant_ref: gooseberry-pax
+        count: 5
+    bush_spacing_m: 1.5
+    established_year: 2025
+
+  - id: BR7
+    label: Honeyberries
+    type: row
+    length_m: 15.0
+    plants:
+      - plant_ref: honeyberry-borealis
+        count: 3
+      - plant_ref: honeyberry-tundra
+        count: 3
+      - plant_ref: honeyberry-aurora
+        count: 3
+    bush_spacing_m: 1.5
+    established_year: 2025
+
+  - id: BR8
+    label: Hybrid Berries
+    type: row
+    length_m: 25.0
+    plants:
+      - plant_ref: tayberry
+        count: 5
+      - plant_ref: boysenberry
+        count: 4
+      - plant_ref: loganberry-ly654
+        count: 4
+    plant_spacing_m: 2.5
+    established_year: 2025
+
+  - id: BR9
+    label: Blueberries
+    type: raised_bed
+    width_m: 1.5
+    length_m: 12.0
+    substrate: ericaceous
+    plants:
+      - plant_ref: blueberry-bluecrop
+        count: 4
+      - plant_ref: blueberry-chandler
+        count: 2
+      - plant_ref: blueberry-darrow
+        count: 3
+    established_year: 2025

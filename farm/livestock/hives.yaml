@@ -1,0 +1,7 @@
+hives:
+  count: 2
+  type: national
+  expected_honey_kg_per_hive_per_year: 12
+  inspection_interval_weeks: 2
+  winter_feeding_weeks: [40, 52, 1, 10]
+  forage_radius_km: 3

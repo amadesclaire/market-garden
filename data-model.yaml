@@ -1,0 +1,210 @@
+Farm:
+  id: uuid
+  name: string           # "Yarrow Farm"
+  location: string       # "North Norfolk"
+  total_acres: float     # 4.0
+  founded_year: int
+
+Zone:
+  id: uuid
+  farm_id: ref:Farm
+  name: string           # "Intensive Veg", "Polytunnel", "Berry Acre", "Orchard"
+  type: enum             # veg_bed | polytunnel | orchard | berry | herb | flower
+  area_sqm: float
+  notes: string
+
+Bed:
+  id: uuid
+  zone_id: ref:Zone
+  label: string          # "V01", "V02", "P01", "O-AppleDiscovery"
+  type: enum             # veg | polytunnel | tree | bush | row
+  width_m: float         # 0.75 for standard market garden beds
+  length_m: float
+  area_sqm: float        # derived
+  position:              # for Three.js rendering
+    x: float
+    y: float
+    rotation: float
+  soil_notes: string
+  established_year: int  # when the bed was created / tree planted
+
+Crop:
+  id: uuid
+  name: string           # "Tomato"
+  variety: string        # "Sungold"
+  category: enum         # vegetable | fruit | herb | flower | medicinal | mushroom
+  family: string         # "Solanaceae" — for rotation logic
+  days_to_maturity: int  # from transplant
+  days_to_harvest_end: int
+  succession_interval_weeks: int
+  direct_sow: bool
+  transplant_weeks: int  # weeks in propagation before transplanting
+  spacing_cm: int        # equidistant grid spacing
+  plants_per_sqm: float  # derived from spacing
+  yield_kg_per_sqm: float
+  harvest_unit: enum     # weight | count | bunch | punnet
+  harvest_unit_size: float # e.g. 0.125 for 125g punnet
+  box_value_gbp: float   # estimated retail value per harvest unit
+  water_needs: enum      # low | medium | high
+  notes: string
+
+  growth_stages:         # week offsets from sow date
+    - stage: enum        # sown | germinating | seedling | establishing |
+                         # mature | flowering | fruiting | harvestable |
+                         # past_peak | cleared
+      week_start: int    # weeks after sow date this stage begins
+      color_hex: string  # for Three.js bed colour
+      canopy_coverage: float # 0.0–1.0 for rendering density
+
+Planting:
+  id: uuid
+  bed_id: ref:Bed
+  crop_id: ref:Crop
+  sow_week: int          # week of year (1–52)
+  sow_year: int
+  transplant_week: int   # null if direct sown
+  expected_first_harvest_week: int
+  expected_last_harvest_week: int
+  area_sqm: float        # may be partial bed
+  quantity_plants: int
+  actual_yield_kg: float # filled in post-harvest
+  notes: string
+  status: enum           # planned | active | complete | failed
+
+HarvestProjection:
+  id: uuid
+  planting_id: ref:Planting
+  week: int
+  year: int
+  projected_quantity: float
+  projected_unit: enum   # kg | count | bunch | punnet
+  actual_quantity: float # filled in post-harvest
+  notes: string
+
+Product:
+  id: uuid
+  name: string           # "Raspberry Jam", "Sourdough Ball", "Raw Honey"
+  category: enum         # fresh | preserved | baked | fermented | medicinal |
+                         # dairy | egg | honey | flower | mushroom | meringue
+  source: enum           # grown | made | partnered
+  unit: string           # "jar 320g", "loaf", "dozen", "bunch", "punnet 125g"
+  retail_value_gbp: float
+  cost_to_produce_gbp: float
+  shelf_life_days: int
+  seasonal: bool
+  available_weeks: [int] # which weeks of year this product is available
+  crop_ids: [ref:Crop]   # source crops if fresh or processed
+  notes: string
+
+BoxTier:
+  id: uuid
+  name: string           # "Field Share", "Larder Share", "Full Yarrow Share"
+  price_gbp: float       # 480 | 570 | 660
+  weeks: int             # 30
+  description: string
+
+BoxComposition:
+  id: uuid
+  tier_id: ref:BoxTier
+  week: int
+  year: int
+  status: enum           # projected | confirmed | packed | delivered
+  items:
+    - product_id: ref:Product
+      quantity: float
+      unit: string
+      source: enum       # harvested | processed | bought_in
+      estimated_value_gbp: float
+  total_estimated_value_gbp: float # derived
+  notes: string
+
+Cost:
+  id: uuid
+  category: enum         # seed | plant | infrastructure | labour |
+                         # packaging | feed | fuel | insurance | rent | other
+  description: string
+  amount_gbp: float
+  date: date
+  amortise_over_years: int  # null if one-off in-year cost
+  related_crop_id: ref:Crop # null if farm-wide cost
+  related_bed_id: ref:Bed   # null if not bed-specific
+  notes: string
+
+Member:
+  id: uuid
+  name: string
+  email: string
+  tier_id: ref:BoxTier
+  drop_point: string
+  start_week: int
+  start_year: int
+  skip_weeks: [int]
+  active: bool
+  notes: string
+
+relationships:
+  Farm → Zone:          one-to-many
+  Zone → Bed:           one-to-many
+  Bed → Planting:       one-to-many (a bed has many plantings over time,
+                        only one active at a time)
+  Crop → Planting:      one-to-many
+  Planting → HarvestProjection: one-to-many (one per week of harvest window)
+  BoxTier → BoxComposition: one-to-many (one per week per tier)
+  BoxComposition → Product: many-to-many (through items array)
+  Product → Crop:       many-to-many (a preserve may use multiple crops)
+  Member → BoxTier:     many-to-one
+
+WeekState:
+  week: int
+  year: int
+  farm_summary:
+    active_plantings: int
+    harvestable_beds: int
+    projected_harvest_kg: float
+    projected_box_value_gbp: float
+    estimated_costs_this_week_gbp: float
+
+  beds:
+    - bed_id: uuid
+      label: string          # "V07"
+      zone: string           # "Intensive Veg"
+      growth_stage: enum     # one of the stage enums
+      canopy_coverage: float # 0.0–1.0
+      color_hex: string      # derived from crop + stage
+      planting:
+        crop_name: string
+        variety: string
+        weeks_since_sow: int
+        weeks_until_harvest: int   # null if not applicable
+        is_harvestable: bool
+      projected_harvest:
+        quantity: float
+        unit: string
+        estimated_value_gbp: float
+      # null if bed is empty
+      active_planting: ref:Planting | null
+
+  boxes:
+    - tier: string           # "Larder Share"
+      items:
+        - product: string
+          quantity: float
+          unit: string
+          value_gbp: float
+          source_beds: [string]  # which bed labels contributed
+      total_value_gbp: float
+      wow_item: string       # the exciting item this week
+      hungry_gap_risk: bool  # is this week thin?
+
+  orchard:
+    - bed_id: uuid
+      tree_name: string      # "Discovery Apple"
+      growth_stage: enum     # dormant | budding | flowering | leafing |
+                             # fruiting | harvest_ready | post_harvest
+      estimated_yield_kg: float
+      bee_forage_value: enum # none | low | medium | high
+
+  preserves_available:
+    - product: string
+      quantity_jars: int
+      made_week: int

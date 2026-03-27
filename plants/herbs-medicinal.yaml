@@ -1,0 +1,158 @@
+plants:
+  - id: lavender-hidcote
+    name: Lavender
+    variety: Hidcote
+    category: herb
+    family: Lamiaceae
+    description: Compact, intensely fragrant, excellent for drying
+
+    cultivation:
+      propagation: cutting
+      final_spacing_cm: 45
+      support_required: false
+
+    yield:
+      harvest_unit: bunch
+      harvest_unit_size_kg: 0.05
+      harvest_frequency: once
+
+    requirements:
+      water: low
+      sun: full
+      frost_tolerant: true
+
+    economics:
+      retail_value_per_unit_gbp: 2.50
+      box_tiers: [full_yarrow]
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 11]
+        color_hex: "#8B8080"
+      - stage: growth
+        weeks: [12, 22]
+        color_hex: "#A0A860"
+      - stage: budding
+        weeks: [23, 25]
+        color_hex: "#C0A0D0"
+      - stage: harvestable
+        weeks: [25, 32]
+        color_hex: "#8060C0"
+        description: Harvest just as flowers open for drying
+        bee_forage_value: high
+      - stage: post_harvest
+        weeks: [32, 44]
+        color_hex: "#A0A860"
+      - stage: dormant
+        weeks: [45, 52]
+        color_hex: "#8B8080"
+
+    bee_forage:
+      blossom_weeks: [24, 32]
+      value: high
+
+  - id: chamomile-german
+    name: Chamomile
+    variety: German
+    category: herb
+    family: Asteraceae
+    description: Annual chamomile for tea, self-seeds freely
+
+    cultivation:
+      propagation: direct_sow
+      sow_week_range: [14, 20]
+      direct_sow: true
+      final_spacing_cm: 20
+      plants_per_sqm: 25
+
+    timing:
+      weeks_to_first_harvest: 10
+      harvest_window_weeks: 8
+      succession_needed: false
+
+    yield:
+      harvest_unit: weight
+      harvest_unit_size_kg: 0.02
+      harvest_frequency: weekly
+
+    requirements:
+      water: low
+      sun: full
+      frost_tolerant: false
+
+    economics:
+      seed_cost_per_sqm_gbp: 0.20
+      retail_value_per_unit_gbp: 1.50
+      box_tiers: [full_yarrow]
+
+    growth_stages:
+      - stage: sown
+        week_offset_start: 0
+        week_offset_end: 2
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+      - stage: seedling
+        week_offset_start: 2
+        week_offset_end: 5
+        color_hex: "#90C840"
+        canopy_coverage: 0.1
+      - stage: vegetative
+        week_offset_start: 5
+        week_offset_end: 9
+        color_hex: "#70A830"
+        canopy_coverage: 0.5
+      - stage: harvestable
+        week_offset_start: 9
+        week_offset_end: 17
+        color_hex: "#FFFFFF"
+        canopy_coverage: 0.7
+        description: White daisy flowers, harvest regularly
+      - stage: cleared
+        week_offset_start: 17
+        week_offset_end: 999
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+
+  - id: echinacea-purpurea
+    name: Echinacea
+    variety: Purpurea
+    category: medicinal
+    family: Asteraceae
+    description: Perennial, immune-support herb, also ornamental
+
+    cultivation:
+      propagation: indoor_sow
+      final_spacing_cm: 45
+      support_required: false
+
+    requirements:
+      water: medium
+      sun: full
+      frost_tolerant: true
+
+    economics:
+      retail_value_per_unit_gbp: 3.00
+      box_tiers: [full_yarrow]
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 13]
+        color_hex: "#8B7355"
+      - stage: growth
+        weeks: [14, 24]
+        color_hex: "#70B840"
+      - stage: harvestable
+        weeks: [25, 36]
+        color_hex: "#C06080"
+        description: Purple coneflowers, harvest roots in autumn
+        bee_forage_value: medium
+      - stage: senescence
+        weeks: [37, 44]
+        color_hex: "#A08060"
+      - stage: dormant
+        weeks: [45, 52]
+        color_hex: "#8B7355"
+
+    bee_forage:
+      blossom_weeks: [25, 36]
+      value: medium

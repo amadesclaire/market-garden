@@ -1,0 +1,50 @@
+products:
+  - id: eggs-half-dozen
+    name: Eggs
+    category: fresh
+    unit: half_dozen
+    retail_price_gbp: 2.00
+
+    production:
+      source: livestock_hens
+      labour_minutes_per_unit: 2
+      packaging_cost_gbp: 0.08
+
+    shelf_life_days: 21
+    available_weeks: [1, 52]
+    box_tiers: [field, larder, full_yarrow]
+    notes: Rhode Island Red eggs, free range on pasture
+
+  - id: cut-flowers-mixed
+    name: Cut Flowers
+    category: fresh
+    subcategory: flowers
+    unit: bunch
+    retail_price_gbp: 6.00
+
+    production:
+      source_crops: [calendula-art-shades, sweet-pea-royal-mix]
+      labour_minutes_per_unit: 10
+      packaging_cost_gbp: 0.20
+
+    shelf_life_days: 7
+    available_weeks: [20, 40]
+    production_season_weeks: [20, 40]
+    box_tiers: [full_yarrow]
+
+  - id: mushroom-pack
+    name: Mixed Mushrooms
+    category: fresh
+    subcategory: mushroom
+    unit: pack_200g
+    retail_price_gbp: 3.50
+
+    production:
+      source_crops: [oyster-mushroom, shiitake]
+      labour_minutes_per_unit: 5
+      packaging_cost_gbp: 0.12
+
+    shelf_life_days: 5
+    available_weeks: [15, 44]
+    production_season_weeks: [15, 44]
+    box_tiers: [larder, full_yarrow]

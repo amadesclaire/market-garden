@@ -1,0 +1,52 @@
+products:
+  - id: honey-jar
+    name: Yarrow Farm Honey
+    category: honey_beeswax
+    subcategory: honey
+    unit: jar_340g
+    retail_price_gbp: 7.50
+
+    production:
+      source: livestock_hives
+      kg_honey_per_jar: 0.34
+      labour_minutes_per_jar: 10
+      jar_cost_gbp: 0.55
+      lid_cost_gbp: 0.08
+      label_cost_gbp: 0.15
+
+    shelf_life_days: 730
+    storage: cool_dark
+    available_weeks: [1, 52]
+    production_season_weeks: [32, 38]
+    box_tiers: [larder, full_yarrow]
+    gift_suitable: true
+    notes: Raw, unfiltered. Norfolk wildflower honey. Extraction August.
+
+  - id: beeswax-wrap-set
+    name: Beeswax Wraps
+    category: honey_beeswax
+    subcategory: beeswax
+    unit: set_3
+    retail_price_gbp: 12.00
+
+    production:
+      source: livestock_hives
+      other_inputs:
+        - ingredient: cotton_fabric
+          amount_g: 150
+          cost_per_kg_gbp: 12.00
+        - ingredient: pine_resin
+          amount_g: 20
+          cost_per_kg_gbp: 15.00
+        - ingredient: jojoba_oil
+          amount_ml: 10
+          cost_per_litre_gbp: 20.00
+      labour_minutes_per_set: 30
+      packaging_cost_gbp: 0.25
+
+    shelf_life_days: 365
+    storage: cool_dry
+    available_weeks: [1, 52]
+    production_season_weeks: [38, 44]
+    box_tiers: [full_yarrow]
+    gift_suitable: true

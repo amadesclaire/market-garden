@@ -1,0 +1,17 @@
+zone:
+  name: Mushroom House
+  type: mushroom
+  description: Shaded growing area for culinary and medicinal mushrooms
+
+beds:
+  - id: MU01
+    width_m: 1.2
+    length_m: 3.0
+    established_year: 2025
+    soil_notes: Straw substrate for oyster mushrooms
+
+  - id: MU02
+    width_m: 1.2
+    length_m: 3.0
+    established_year: 2025
+    soil_notes: Oak log substrate for shiitake

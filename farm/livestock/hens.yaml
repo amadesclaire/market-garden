@@ -1,0 +1,12 @@
+hens:
+  flock_size: 20
+  breed: Rhode Island Red
+  housing: mobile_ark
+  eggs_per_hen_per_week: 5.5
+  seasonal_variation:
+    - weeks: [1, 8]
+      multiplier: 0.6 # winter lay reduction
+    - weeks: [9, 52]
+      multiplier: 1.0
+  feed_kg_per_hen_per_day: 0.12
+  feed_cost_per_kg_gbp: 0.45

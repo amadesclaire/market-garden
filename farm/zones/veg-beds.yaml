@@ -1,0 +1,48 @@
+zone:
+  name: Intensive Veg
+  type: veg
+  description: Permanent raised beds, no-dig system
+
+beds:
+  - id: V01
+    width_m: 0.75
+    length_m: 8.0
+    orientation: north-south
+    established_year: 2025
+    soil_notes: Heavy clay, amended with compost
+    irrigation_zone: 1
+
+  - id: V02
+    width_m: 0.75
+    length_m: 8.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 1
+
+  - id: V03
+    width_m: 0.75
+    length_m: 8.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 2
+
+  - id: V04
+    width_m: 0.75
+    length_m: 8.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 2
+
+  - id: V05
+    width_m: 0.75
+    length_m: 8.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 3
+
+  - id: V06
+    width_m: 0.75
+    length_m: 8.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 3

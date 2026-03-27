@@ -1,0 +1,29 @@
+farm:
+  name: Yarrow Farm
+  location: North Norfolk, England
+  latitude: 52.9
+  longitude: 1.1
+  total_acres: 4.0
+  established_year: 2025
+  season_start_week: 14 # early April
+  season_end_week: 44   # early November
+  box_day: wednesday
+  currency: GBP
+  currency_symbol: "£"
+
+infrastructure:
+  polytunnel:
+    count: 1
+    width_m: 6
+    length_m: 15
+    heated: false
+    irrigation: drip
+
+  water:
+    source: mains
+    rainwater_harvesting: true
+    irrigation_zones: 4
+
+  cold_storage:
+    capacity_litres: 400
+    temperature_c: 4

@@ -1,0 +1,288 @@
+tasks:
+  # ─── PHASE 1 — Data model, backend, simulation ───────────────────────────────
+
+  - id: schema
+    name: Initial SQLite schema
+    description: >
+      Write migrations/001_initial.sql covering all entities from the YAML
+      data model: farm config, zones, beds, orchard rows/trees, berry rows,
+      plantings, plant library (vegetables, fruit trees, berries, herbs,
+      flowers, mushrooms), growth stages, annual cycles, products, box tiers,
+      members, costs, and livestock. No application code.
+    done: false
+    context: >
+      Foundation for everything. Must be reviewed and approved before any
+      other task begins. Monetary values as INTEGER (minor currency units).
+      Weeks as INTEGER 1–52. growth_stages keyed to plant_id. annual_cycle
+      keyed to plant_id with week_start/week_end. Mixed berry/orchard rows
+      must support multiple plant_refs per row.
+    depends_on: []
+    phase: 1
+
+  - id: yaml-config
+    name: YAML configuration files — Yarrow Farm seed data
+    description: >
+      Create all YAML files under farm/, plants/, and products/ that form
+      the reference implementation for Yarrow Farm. Includes farm/farm.yaml,
+      all zone files, livestock files, shares.yaml, plants/vegetables.yaml,
+      plants/fruit-trees.yaml, plants/berries.yaml, plants/herbs-medicinal.yaml,
+      plants/flowers.yaml, plants/mushrooms.yaml, and all products/ files.
+      Seed data is minimal — enough to demonstrate one complete crop cycle
+      through the simulation. Do not fill in entries marked with comments
+      like "# ... etc".
+    done: false
+    context: >
+      YAML files are the canonical source of truth. The application reads
+      them at startup and syncs to SQLite. Shapes must match exactly what
+      the schema and loader expect. Can run in parallel with db-module —
+      both depend only on schema.
+    depends_on: [schema]
+    phase: 1
+
+  - id: plant-visual-definitions
+    name: Plant visual definitions in YAML
+    description: >
+      Add a visual block to every plant entry in the plant library YAML
+      files. Required fields: shape (enum — rosette | upright | sprawling
+      | climbing | root | brassica | salad_block | herb | tree | bush |
+      cane | strawberry), canopy_radius_cm (at maturity), primary_colour_hex
+      (mature foliage), fruit_colour_hex (nullable), support_structure bool.
+    done: false
+    context: >
+      These fields drive the instanced plant renderer. Shape maps to a
+      canvas drawing function. canopy_radius_cm determines instance scale
+      relative to actual bed width. All plants sharing a shape use the
+      same drawing function — colour and scale vary per instance.
+    depends_on: [yaml-config]
+    phase: 1
+
+  - id: db-module
+    name: Database connection and migration runner
+    description: >
+      Write src/db.ts. Opens the SQLite database via bun:sqlite, discovers
+      all .sql files in migrations/ ordered numerically, tracks which have
+      been applied in a schema_migrations table, and applies any pending ones
+      on startup. Exports the db instance for use by the rest of the application.
+    done: false
+    context: >
+      Uses bun:sqlite — no external driver. Raw SQL only, no ORM. One
+      migration file per migration; never edit an applied migration.
+      Can run in parallel with yaml-config — both depend only on schema.
+    depends_on: [schema]
+    phase: 1
+
+  - id: yaml-loader
+    name: YAML reader and DB sync
+    description: >
+      Write src/loader.ts. On startup reads all YAML files from farm/,
+      plants/, and products/. Diffs each record against the database and
+      applies inserts/updates. If a record exists in DB but not in YAML,
+      logs a warning but does not delete it. Handles all zone types: veg
+      beds, orchard rows/trees, berry rows, livestock, members, products.
+    done: false
+    context: >
+      Must handle all YAML shapes shown in the data model. Mixed-species
+      rows (berry, orchard) require inserting multiple zone_row_plants
+      records per row. The loader is idempotent — safe to run on every
+      startup.
+    depends_on: [db-module, yaml-config]
+    phase: 1
+
+  - id: simulation
+    name: Timeline engine and box composer
+    description: >
+      Write src/simulation.ts. For any given week/year it computes: the
+      active planting per bed and its growth stage (via weeks_since_sow
+      lookup into growth_stages); orchard tree stage (via annual_cycle
+      week lookup and yield_by_year multiplier); projected harvest kg per
+      bed; livestock outputs (egg count, honey extractability, hive
+      inspection due); and box compositions for every configured tier
+      (collect harvestable produce, apply tier allocation rules, calculate
+      total value). Returns the full WeekState shape that matches the
+      GET /api/week/:week contract.
+    done: false
+    context: >
+      This is the core logic layer. No I/O — pure computation over data
+      loaded from SQLite. The Three.js canvas and HTMX panels are both
+      driven by this output. Box composer is included here, not split out.
+    depends_on: [yaml-loader]
+    phase: 1
+
+  - id: simulation-tests
+    name: Unit tests for simulation engine
+    description: >
+      Write tests using bun test for src/simulation.ts. Tests use synthetic
+      planting records with known expected outputs. Cover: growth stage
+      lookup at boundary weeks; projected harvest calculation; empty bed
+      handling; orchard annual cycle lookup; yield_by_year multiplier
+      application; box tier allocation; livestock egg projection with
+      seasonal multiplier.
+    done: false
+    context: >
+      No tests for routes, server setup, or UI rendering. Only the
+      simulation engine is tested. Inputs are synthetic — do not depend
+      on YAML files being loaded.
+    depends_on: [simulation]
+    phase: 1
+
+  - id: api-routes
+    name: JSON API endpoints
+    description: >
+      Write src/routes/api.ts. Implements GET /api/week/:week,
+      GET /api/farm, and GET /api/beds as Hono route handlers. Each
+      returns exactly the JSON shape defined in the api_contracts section.
+      /api/week/:week calls the simulation engine and returns the full
+      WeekState. /api/farm returns static zone/bed/livestock structure.
+      /api/beds returns all beds with their planting schedules.
+    done: false
+    context: >
+      JSON shapes are fixed contracts — do not deviate. Arrays in the
+      response (beds, orchard, boxes) contain whatever the configuration
+      has — no hardcoded lengths or zone assumptions.
+    depends_on: [simulation]
+    phase: 1
+
+  # Fix: move ui-routes to phase 1 as a stub (placeholder handlers only,
+  # full implementation remains phase 2)
+  - id: ui-routes-stub
+    name: UI routes stub
+    description: >
+      Write src/routes/ui.ts with placeholder handlers returning empty
+      HTML fragments for all UI endpoints. Enough for server-entry to
+      mount and start cleanly. Full implementation in phase 2.
+    done: false
+    context: >
+      Exists only to unblock server-entry in phase 1. Do not implement
+      real rendering here yet.
+    depends_on: [simulation]
+    phase: 1
+
+  - id: server-entry
+    name: Hono server entrypoint
+    description: >
+      Write src/index.ts. Starts the Hono server on port 3000 using
+      Bun.serve(). On startup runs the migration runner and YAML loader.
+      Mounts api routes from src/routes/api.ts and UI routes from
+      src/routes/ui.ts. Serves static files from public/.
+    done: false
+    context: >
+      Entry point only — minimal glue. All logic lives in the modules
+      it imports. Uses Hono, not express. No frontend framework, no
+      build step. ui-routes-stub provides the Phase 1 placeholder mount;
+      the full ui-routes implementation is Phase 2.
+    depends_on: [api-routes, ui-routes-stub]
+    phase: 1
+
+  # ─── PHASE 2 — Frontend, HTMX panels, Three.js visualisation ────────────────
+
+  - id: ui-routes
+    name: Server-rendered HTML routes for HTMX
+    description: >
+      Write src/routes/ui.ts. Implements: GET /ui/bed/:id (bed detail
+      panel — crop info, current growth stage, projected harvests by
+      week, planting history); GET /ui/week/:week/boxes (box compositions
+      for all tiers); GET /ui/week/:week/costs (cost breakdown). Each
+      returns an HTML fragment (not a full page) for HTMX to swap in.
+      Also implements the main GET / page with the week scrubber and
+      canvas container.
+    done: false
+    context: >
+      Server-rendered HTML. HTMX handles dynamic updates — no JavaScript
+      framework. Hono's html helper or template literals for markup.
+      The main page loads Three.js and main.js from CDN/public/.
+    depends_on: [ui-routes-stub, simulation]
+    phase: 2
+
+  - id: css-styles
+    name: Application stylesheet
+    description: >
+      Write public/style.css. Functional, minimal plain CSS for the farm
+      planner UI: layout with canvas on the left, panels on the right;
+      week scrubber; bed detail panel; box composition panel; cost panel.
+      No Tailwind, no CSS framework.
+    done: false
+    context: >
+      Plain CSS only. Should be clean and legible without being decorative.
+      The canvas takes the majority of the viewport.
+    depends_on: [ui-routes]
+    phase: 2
+
+  - id: main-shell
+    name: Main HTML page and scrubber wiring
+    description: >
+      Implement GET / in ui-routes to serve the full application shell.
+      Includes the Three.js canvas container, week scrubber input (range
+      1-52), and panel containers for bed detail, box composition, and
+      costs. The scrubber's input event must simultaneously call the
+      Three.js update function and trigger HTMX requests to update all
+      panels. Load HTMX and Three.js from CDN. No JavaScript framework.
+    done: false
+    context: >
+      The scrubber wiring is the key integration point between Three.js
+      and HTMX. Both must update on a single input event without
+      duplication or race conditions.
+    depends_on: [css-styles, api-routes]
+    phase: 2
+
+  - id: box-icons
+    name: SVG product icons for box preview panel
+    description: >
+      Generate a flat single-colour SVG icon for each product category
+      used in box compositions. Categories: vegetable, salad, tomato,
+      root, brassica, berry, apple, egg, honey, sourdough, mushroom,
+      flowers, herb, preserve, meringue, medicinal-tea. Icons live in
+      public/icons/, designed to read clearly at 32x32px.
+    done: false
+    context: >
+      One icon per category — varieties within a category share the
+      same icon. Simple geometric SVGs only, no illustrations. If a
+      category proves difficult to represent clearly, a Unicode emoji
+      fallback is acceptable for v1.
+    depends_on: [yaml-config]
+    phase: 2
+
+  - id: threejs-canvas
+    name: Three.js farm visualisation
+    description: >
+      Write public/main.js. Vanilla JS, no bundler, no modules. Loads
+      Three.js from CDN. Implements an orthographic top-down view of the
+      farm. On load calls GET /api/farm to build the static scene graph
+      (zones, beds as rectangles, orchard trees as circles). On week
+      change calls GET /api/week/:week and updates each bed/tree's colour
+      and canopy coverage. Week scrubber in the HTML page drives both the
+      Three.js update and the HTMX panel swaps simultaneously.
+    done: false
+    context: >
+      Stateless rendering layer — reads JSON from the API, has no
+      planning logic of its own. Built last when JSON shapes are stable.
+      Beds render as sequential rows within their zone; orchard trees as
+      evenly-spaced circles in rows. Berry zone rows render as filled
+      rectangles. No precise coordinates needed — layout is computed
+      from the zone/bed configuration.
+    done_criteria: >
+      Scrubbing from week 1 to week 52 animates bed colours correctly.
+      Clicking a bed fires the HTMX request and populates the detail panel.
+      Empty beds render as bare soil colour. Orchard trees show blossom
+      colour in weeks 13-15. No console errors on load.
+    depends_on: [api-routes, main-shell]
+    phase: 2
+
+  - id: plant-renderer
+    name: Instanced plant renderer
+    description: >
+      Extend public/main.js with instanced plant rendering within beds.
+      Uses Three.js InstancedMesh — one geometry per plant shape, instances
+      positioned at actual grid spacing within each bed rectangle. Plant
+      shapes drawn procedurally via CanvasTexture on an offscreen canvas.
+      Instance colour driven by growth stage from WeekState. LOD switch:
+      below a zoom threshold revert to solid bed colour for performance.
+      Orchard trees, berry bushes, and cane rows use the same instancing
+      approach with larger geometry.
+    done: false
+    context: >
+      InstancedMesh is non-negotiable at plant density — do not use
+      individual Mesh objects per plant. The LOD switch should be
+      automatic based on camera zoom. This task extends threejs-canvas,
+      it does not replace it.
+    depends_on: [threejs-canvas, plant-visual-definitions]
+    phase: 2

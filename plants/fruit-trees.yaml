@@ -1,0 +1,826 @@
+trees:
+  # ── Fully specified ──────────────────────────────────────────────────────────
+
+  - id: apple-discovery
+    name: Apple
+    variety: Discovery
+    category: fruit_tree
+    family: Rosaceae
+    rootstock: MM106
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+        description: Bare branches
+
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+        description: Buds swelling
+
+      - stage: blossom
+        weeks: [13, 15]
+        color_hex: "#FFB7C5"
+        description: Full blossom — peak bee forage
+        bee_forage_value: high
+
+      - stage: leafing
+        weeks: [15, 20]
+        color_hex: "#90C840"
+        description: Leaves open, fruitlets forming
+
+      - stage: summer_growth
+        weeks: [20, 28]
+        color_hex: "#60A820"
+        description: Fruit swelling
+
+      - stage: ripening
+        weeks: [28, 32]
+        color_hex: "#C8D820"
+        description: Fruit colouring
+
+      - stage: harvest_ready
+        weeks: [32, 35]
+        color_hex: "#E84020"
+        description: Pick August — does not store
+
+      - stage: post_harvest
+        weeks: [35, 44]
+        color_hex: "#70A830"
+        description: Post-harvest, leaves on
+
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+        description: Autumn colour
+
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+        description: Dormant
+
+    yield:
+      kg_per_tree_at_maturity: 25
+      yield_by_year:
+        1: 0.0
+        2: 0.0
+        3: 0.1
+        4: 0.3
+        5: 0.6
+        6: 1.0
+      harvest_unit: weight
+      storage_weeks: 0
+
+    bee_forage:
+      blossom_weeks: [13, 15]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 2.50
+
+  # ── Stubs — same annual cycle shape as Discovery, harvest windows vary ───────
+
+  - id: apple-rev-wilks
+    name: Apple
+    variety: Rev. W. Wilks
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [13, 15]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [15, 20]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [20, 28]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [28, 33]
+        color_hex: "#C8D820"
+      - stage: harvest_ready
+        weeks: [33, 37]
+        color_hex: "#F0D040"
+        description: Pick September, pale yellow
+      - stage: post_harvest
+        weeks: [37, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 20
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 2
+
+    bee_forage:
+      blossom_weeks: [13, 15]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 2.00
+
+  - id: apple-grenadier
+    name: Apple
+    variety: Grenadier
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [13, 15]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [15, 20]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [20, 29]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [29, 33]
+        color_hex: "#B0C820"
+      - stage: harvest_ready
+        weeks: [33, 37]
+        color_hex: "#E0E040"
+        description: Cooker, August-September
+      - stage: post_harvest
+        weeks: [37, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 30
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 0
+
+    bee_forage:
+      blossom_weeks: [13, 15]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 1.50
+
+  - id: apple-irish-peach
+    name: Apple
+    variety: Irish Peach
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [13, 15]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [15, 19]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [19, 27]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [27, 30]
+        color_hex: "#C8D040"
+      - stage: harvest_ready
+        weeks: [30, 33]
+        color_hex: "#E8C040"
+        description: Early dessert, July-August
+      - stage: post_harvest
+        weeks: [33, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 18
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 0
+
+    bee_forage:
+      blossom_weeks: [13, 15]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 2.50
+
+  - id: apple-katy
+    name: Apple
+    variety: Katy
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [13, 15]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [15, 20]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [20, 29]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [29, 32]
+        color_hex: "#D04020"
+      - stage: harvest_ready
+        weeks: [32, 36]
+        color_hex: "#E04030"
+        description: Bright red, August-September
+      - stage: post_harvest
+        weeks: [36, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 22
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 2
+
+    bee_forage:
+      blossom_weeks: [13, 15]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 2.50
+
+  - id: apple-cox
+    name: Apple
+    variety: Cox's Orange Pippin
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 4
+      years_to_full_production: 7
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [14, 16]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [16, 21]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [21, 32]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [32, 37]
+        color_hex: "#C87030"
+      - stage: harvest_ready
+        weeks: [37, 41]
+        color_hex: "#D06030"
+        description: Classic dessert, October
+      - stage: post_harvest
+        weeks: [41, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 20
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.1, 5: 0.3, 6: 0.6, 7: 1.0}
+      harvest_unit: weight
+      storage_weeks: 8
+
+    bee_forage:
+      blossom_weeks: [14, 16]
+      value: high
+
+    economics:
+      tree_cost_gbp: 20
+      annual_input_cost_gbp: 10
+      retail_value_per_kg_gbp: 3.00
+
+  - id: apple-sunset
+    name: Apple
+    variety: Sunset
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [14, 16]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [16, 21]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [21, 32]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [32, 37]
+        color_hex: "#C87030"
+      - stage: harvest_ready
+        weeks: [37, 41]
+        color_hex: "#D06030"
+        description: Cox-type, October
+      - stage: post_harvest
+        weeks: [41, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 22
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 6
+
+    bee_forage:
+      blossom_weeks: [14, 16]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 2.80
+
+  - id: apple-bramley
+    name: Apple
+    variety: Bramley's Seedling
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 4
+      years_to_full_production: 8
+      productive_life_years: 60
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 12]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [14, 17]
+        color_hex: "#FFB7C5"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [17, 22]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [22, 34]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [34, 39]
+        color_hex: "#A0C030"
+      - stage: harvest_ready
+        weeks: [39, 44]
+        color_hex: "#80A820"
+        description: Large cooker, October onwards — stores well
+      - stage: post_harvest
+        weeks: [44, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 50
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.1, 5: 0.3, 6: 0.5, 7: 0.8, 8: 1.0}
+      harvest_unit: weight
+      storage_weeks: 20
+
+    bee_forage:
+      blossom_weeks: [14, 17]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 1.50
+
+  - id: pear-beth
+    name: Pear
+    variety: Beth
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 40
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 9]
+        color_hex: "#8B7355"
+      - stage: budding
+        weeks: [10, 11]
+        color_hex: "#A0855A"
+      - stage: blossom
+        weeks: [12, 14]
+        color_hex: "#FFFFFF"
+        bee_forage_value: medium
+      - stage: leafing
+        weeks: [14, 20]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [20, 31]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [31, 34]
+        color_hex: "#C8C840"
+      - stage: harvest_ready
+        weeks: [34, 37]
+        color_hex: "#E0D060"
+        description: Pick August before fully ripe, ripen indoors
+      - stage: post_harvest
+        weeks: [37, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 20
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 2
+
+    bee_forage:
+      blossom_weeks: [12, 14]
+      value: medium
+
+    economics:
+      tree_cost_gbp: 20
+      annual_input_cost_gbp: 8
+      retail_value_per_kg_gbp: 2.50
+
+  - id: plum-opal
+    name: Plum
+    variety: Opal
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 5
+      productive_life_years: 30
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 8]
+        color_hex: "#8B7355"
+      - stage: blossom
+        weeks: [9, 12]
+        color_hex: "#FFFFFF"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [12, 18]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [18, 28]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [28, 31]
+        color_hex: "#8040A0"
+      - stage: harvest_ready
+        weeks: [31, 34]
+        color_hex: "#6030C0"
+        description: Sweet golden-red, July-August
+      - stage: post_harvest
+        weeks: [34, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 15
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.4, 5: 1.0}
+      harvest_unit: weight
+      storage_weeks: 1
+
+    bee_forage:
+      blossom_weeks: [9, 12]
+      value: high
+
+    economics:
+      tree_cost_gbp: 18
+      annual_input_cost_gbp: 6
+      retail_value_per_kg_gbp: 3.00
+
+  - id: damson-shropshire
+    name: Damson
+    variety: Shropshire Prune
+    category: fruit_tree
+    family: Rosaceae
+
+    maturity:
+      years_to_first_fruit: 3
+      years_to_full_production: 6
+      productive_life_years: 50
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 8]
+        color_hex: "#8B7355"
+      - stage: blossom
+        weeks: [9, 12]
+        color_hex: "#FFFFFF"
+        bee_forage_value: high
+      - stage: leafing
+        weeks: [12, 18]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [18, 32]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [32, 36]
+        color_hex: "#6030A0"
+      - stage: harvest_ready
+        weeks: [36, 40]
+        color_hex: "#402080"
+        description: Intensely flavoured, September — excellent for gin
+      - stage: post_harvest
+        weeks: [40, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 20
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.1, 4: 0.3, 5: 0.6, 6: 1.0}
+      harvest_unit: weight
+      storage_weeks: 1
+
+    bee_forage:
+      blossom_weeks: [9, 12]
+      value: high
+
+    economics:
+      tree_cost_gbp: 16
+      annual_input_cost_gbp: 5
+      retail_value_per_kg_gbp: 2.50
+
+  - id: walnut-broadview
+    name: Walnut
+    variety: Broadview
+    category: fruit_tree
+    family: Juglandaceae
+
+    maturity:
+      years_to_first_fruit: 4
+      years_to_full_production: 10
+      productive_life_years: 100
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 14]
+        color_hex: "#8B7355"
+      - stage: leafing
+        weeks: [15, 22]
+        color_hex: "#90C840"
+      - stage: catkins
+        weeks: [16, 18]
+        color_hex: "#A0A040"
+        bee_forage_value: low
+      - stage: summer_growth
+        weeks: [22, 36]
+        color_hex: "#60A820"
+      - stage: harvest_ready
+        weeks: [36, 42]
+        color_hex: "#8B6914"
+        description: Nuts fall when ripe, September-October
+      - stage: leaf_fall
+        weeks: [42, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 10
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.05, 5: 0.1, 6: 0.2, 7: 0.4, 8: 0.6, 9: 0.8, 10: 1.0}
+      harvest_unit: weight
+      storage_weeks: 52
+
+    economics:
+      tree_cost_gbp: 30
+      annual_input_cost_gbp: 5
+      retail_value_per_kg_gbp: 8.00
+
+  - id: mulberry-chelsea
+    name: Mulberry
+    variety: Chelsea
+    category: fruit_tree
+    family: Moraceae
+
+    maturity:
+      years_to_first_fruit: 5
+      years_to_full_production: 10
+      productive_life_years: 100
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 16]
+        color_hex: "#8B7355"
+        description: Late to leaf — last frost risk passes
+      - stage: leafing
+        weeks: [17, 24]
+        color_hex: "#90C840"
+      - stage: summer_growth
+        weeks: [24, 32]
+        color_hex: "#60A820"
+      - stage: ripening
+        weeks: [32, 36]
+        color_hex: "#C020A0"
+      - stage: harvest_ready
+        weeks: [36, 40]
+        color_hex: "#800060"
+        description: Deep red-black, August-September — very perishable
+      - stage: post_harvest
+        weeks: [40, 44]
+        color_hex: "#70A830"
+      - stage: leaf_fall
+        weeks: [44, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 8
+      yield_by_year: {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.05, 6: 0.1, 7: 0.3, 8: 0.6, 9: 0.8, 10: 1.0}
+      harvest_unit: weight
+      storage_weeks: 0
+
+    economics:
+      tree_cost_gbp: 35
+      annual_input_cost_gbp: 5
+      retail_value_per_kg_gbp: 12.00
+
+  - id: fig-brown-turkey
+    name: Fig
+    variety: Brown Turkey
+    category: fruit_tree
+    family: Moraceae
+
+    maturity:
+      years_to_first_fruit: 2
+      years_to_full_production: 5
+      productive_life_years: 30
+
+    annual_cycle:
+      - stage: dormant
+        weeks: [1, 14]
+        color_hex: "#8B7355"
+      - stage: leafing
+        weeks: [15, 22]
+        color_hex: "#608030"
+      - stage: embryo_figs
+        weeks: [22, 30]
+        color_hex: "#506020"
+      - stage: ripening
+        weeks: [30, 34]
+        color_hex: "#804060"
+      - stage: harvest_ready
+        weeks: [34, 40]
+        color_hex: "#602040"
+        description: August-October, harvest when neck bends
+      - stage: leaf_fall
+        weeks: [40, 48]
+        color_hex: "#C8A030"
+      - stage: dormant
+        weeks: [48, 52]
+        color_hex: "#8B7355"
+
+    yield:
+      kg_per_tree_at_maturity: 5
+      yield_by_year: {1: 0.0, 2: 0.1, 3: 0.3, 4: 0.6, 5: 1.0}
+      harvest_unit: weight
+      storage_weeks: 0
+
+    economics:
+      tree_cost_gbp: 25
+      annual_input_cost_gbp: 6
+      retail_value_per_kg_gbp: 6.00

@@ -1,0 +1,221 @@
+plants:
+  - id: tomato-sungold
+    name: Tomato
+    variety: Sungold
+    category: vegetable
+    family: Solanaceae
+    description: Cherry tomato, exceptional sweetness, orange when ripe
+
+    cultivation:
+      propagation: indoor_sow
+      sow_week_range: [8, 12]
+      transplant_weeks_after_sow: 6
+      final_spacing_cm: 60
+      plants_per_sqm: 0.28
+      rows_per_bed: 1
+      direct_sow: false
+      support_required: true
+
+    timing:
+      weeks_in_propagation: 6
+      weeks_to_first_harvest: 16 # from sow date
+      harvest_window_weeks: 14
+      succession_needed: false
+
+    yield:
+      expected_kg_per_plant: 3.5
+      expected_kg_per_sqm: 1.0
+      harvest_unit: punnet
+      harvest_unit_size_kg: 0.25
+      harvest_frequency: weekly
+
+    requirements:
+      water: high
+      water_litres_per_sqm_per_week: 8
+      fertiliser: medium_high
+      fertiliser_notes: High potassium once fruiting begins
+      sun: full
+      frost_tolerant: false
+      polytunnel_recommended: true
+
+    rotation:
+      group: solanaceae
+      years_before_return: 4
+      avoid_following: [potato, pepper, aubergine]
+      good_companions: [basil, calendula]
+
+    economics:
+      seed_cost_per_plant_gbp: 0.15
+      retail_value_per_unit_gbp: 1.80
+      box_tier: [larder, full_yarrow]
+
+    growth_stages:
+      - stage: sown
+        week_offset_start: 0
+        week_offset_end: 1
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+        description: Seed sown in propagation tray
+
+      - stage: germinating
+        week_offset_start: 1
+        week_offset_end: 2
+        color_hex: "#A0784A"
+        canopy_coverage: 0.02
+        description: Germination underway
+
+      - stage: seedling
+        week_offset_start: 2
+        week_offset_end: 4
+        color_hex: "#7AB648"
+        canopy_coverage: 0.05
+        description: True leaves forming in propagation
+
+      - stage: transplant_ready
+        week_offset_start: 5
+        week_offset_end: 6
+        color_hex: "#5A9E30"
+        canopy_coverage: 0.08
+        description: Ready to move to final position
+
+      - stage: establishing
+        week_offset_start: 6
+        week_offset_end: 9
+        color_hex: "#4A8E25"
+        canopy_coverage: 0.2
+        description: Settling into final bed
+
+      - stage: vegetative
+        week_offset_start: 9
+        week_offset_end: 13
+        color_hex: "#3A7E18"
+        canopy_coverage: 0.6
+        description: Strong vegetative growth
+
+      - stage: flowering
+        week_offset_start: 13
+        week_offset_end: 15
+        color_hex: "#6EAE30"
+        canopy_coverage: 0.75
+        description: Yellow flowers opening
+
+      - stage: fruiting
+        week_offset_start: 15
+        week_offset_end: 16
+        color_hex: "#E8A020"
+        canopy_coverage: 0.85
+        description: Green fruit swelling
+
+      - stage: harvestable
+        week_offset_start: 16
+        week_offset_end: 29
+        color_hex: "#E84020"
+        canopy_coverage: 0.9
+        description: Ripe fruit, harvest weekly
+
+      - stage: past_peak
+        week_offset_start: 29
+        week_offset_end: 31
+        color_hex: "#B03010"
+        canopy_coverage: 0.7
+        description: Yield declining
+
+      - stage: cleared
+        week_offset_start: 31
+        week_offset_end: 999
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+        description: Plants removed, bed cleared
+
+  - id: carrot-nantes
+    name: Carrot
+    variety: Nantes 2
+    category: vegetable
+    family: Apiaceae
+
+    cultivation:
+      propagation: direct_sow
+      sow_week_range: [14, 28]
+      direct_sow: true
+      final_spacing_cm: 6
+      plants_per_sqm: 28
+      rows_per_bed: 4
+
+    timing:
+      weeks_to_first_harvest: 12
+      harvest_window_weeks: 6
+      succession_needed: true
+      succession_interval_weeks: 3
+
+    yield:
+      expected_kg_per_sqm: 4.0
+      harvest_unit: weight
+      harvest_unit_size_kg: 0.5
+      harvest_frequency: once
+
+    requirements:
+      water: medium
+      water_litres_per_sqm_per_week: 4
+      fertiliser: low
+      fertiliser_notes: Avoid fresh manure — causes forking
+      sun: full
+      frost_tolerant: true
+
+    rotation:
+      group: apiaceae
+      years_before_return: 3
+      avoid_following: [parsnip, parsley, fennel]
+
+    economics:
+      seed_cost_per_sqm_gbp: 0.40
+      retail_value_per_unit_gbp: 0.90
+      box_tier: [field, larder, full_yarrow]
+
+    growth_stages:
+      - stage: sown
+        week_offset_start: 0
+        week_offset_end: 2
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0
+
+      - stage: germinating
+        week_offset_start: 2
+        week_offset_end: 3
+        color_hex: "#9B7824"
+        canopy_coverage: 0.02
+
+      - stage: seedling
+        week_offset_start: 3
+        week_offset_end: 6
+        color_hex: "#7AB648"
+        canopy_coverage: 0.1
+
+      - stage: establishing
+        week_offset_start: 6
+        week_offset_end: 9
+        color_hex: "#5A9630"
+        canopy_coverage: 0.4
+
+      - stage: mature
+        week_offset_start: 9
+        week_offset_end: 12
+        color_hex: "#4A8625"
+        canopy_coverage: 0.8
+
+      - stage: harvestable
+        week_offset_start: 12
+        week_offset_end: 17
+        color_hex: "#E87820"
+        canopy_coverage: 0.9
+
+      - stage: past_peak
+        week_offset_start: 17
+        week_offset_end: 19
+        color_hex: "#C06010"
+        canopy_coverage: 0.6
+
+      - stage: cleared
+        week_offset_start: 19
+        week_offset_end: 999
+        color_hex: "#8B6914"
+        canopy_coverage: 0.0

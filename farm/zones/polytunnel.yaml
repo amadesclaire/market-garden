@@ -1,0 +1,26 @@
+zone:
+  name: Polytunnel
+  type: polytunnel
+  description: 6m x 15m unheated polytunnel, drip irrigation
+
+beds:
+  - id: PT01
+    width_m: 1.0
+    length_m: 12.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 4
+
+  - id: PT02
+    width_m: 1.0
+    length_m: 12.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 4
+
+  - id: PT03
+    width_m: 1.0
+    length_m: 12.0
+    orientation: north-south
+    established_year: 2025
+    irrigation_zone: 4

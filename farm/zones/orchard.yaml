@@ -1,0 +1,117 @@
+zone:
+  name: Orchard
+  type: orchard
+  description: MM106 rootstock apples, semi-vigorous pears and stone fruit
+
+rows:
+  - id: OR1
+    label: Early Apples
+    tree_spacing_m: 4.5
+    trees:
+      - id: OR1-T1
+        plant_ref: apple-discovery
+        planted_year: 2025
+        rootstock: MM106
+        position: 1
+
+      - id: OR1-T2
+        plant_ref: apple-rev-wilks
+        planted_year: 2025
+        rootstock: MM106
+        position: 2
+
+      - id: OR1-T3
+        plant_ref: apple-grenadier
+        planted_year: 2025
+        rootstock: MM106
+        position: 3
+
+      - id: OR1-T4
+        plant_ref: apple-irish-peach
+        planted_year: 2025
+        rootstock: MM106
+        position: 4
+
+      - id: OR1-T5
+        plant_ref: apple-katy
+        planted_year: 2025
+        rootstock: MM106
+        position: 5
+
+  - id: OR2
+    label: Mid Apples
+    tree_spacing_m: 4.5
+    trees:
+      - id: OR2-T1
+        plant_ref: apple-cox
+        planted_year: 2025
+        rootstock: MM106
+        position: 1
+
+      - id: OR2-T2
+        plant_ref: apple-sunset
+        planted_year: 2025
+        rootstock: MM106
+        position: 2
+
+  - id: OR3
+    label: Late Apples
+    tree_spacing_m: 4.5
+    trees:
+      - id: OR3-T1
+        plant_ref: apple-bramley
+        planted_year: 2025
+        rootstock: MM106
+        position: 1
+
+  - id: OR4
+    label: Pears
+    tree_spacing_m: 4.5
+    trees:
+      - id: OR4-T1
+        plant_ref: pear-beth
+        planted_year: 2025
+        rootstock: quince-a
+        position: 1
+
+  - id: OR5
+    label: Stone Fruit
+    tree_spacing_m: 4.0
+    trees:
+      - id: OR5-T1
+        plant_ref: plum-opal
+        planted_year: 2025
+        rootstock: st-julien-a
+        position: 1
+
+  - id: OR6
+    label: Damsons and Quince
+    tree_spacing_m: 4.0
+    trees:
+      - id: OR6-T1
+        plant_ref: damson-shropshire
+        planted_year: 2025
+        rootstock: st-julien-a
+        position: 1
+
+  - id: OR7
+    label: Nuts and Specials
+    tree_spacing_m: 5.0
+    trees:
+      - id: OR7-T1
+        plant_ref: walnut-broadview
+        planted_year: 2025
+        rootstock: own-root
+        position: 1
+
+      - id: OR7-T2
+        plant_ref: mulberry-chelsea
+        planted_year: 2025
+        rootstock: own-root
+        position: 2
+
+      - id: OR7-T3
+        plant_ref: fig-brown-turkey
+        planted_year: 2025
+        rootstock: own-root
+        position: 3

@@ -1,0 +1,50 @@
+products:
+  - id: chamomile-tea
+    name: Chamomile Tea
+    category: medicinal
+    subcategory: tea
+    unit: bag_15
+    retail_price_gbp: 4.50
+
+    production:
+      source_crops: [chamomile-german]
+      labour_minutes_per_unit: 15
+      other_inputs:
+        - ingredient: tea_bags
+          amount_units: 15
+          cost_per_unit_gbp: 0.03
+        - ingredient: box_packaging
+          amount_units: 1
+          cost_pence: 25
+      drying_days: 7
+
+    shelf_life_days: 365
+    storage: cool_dark_dry
+    available_weeks: [1, 52]
+    production_season_weeks: [26, 38]
+    box_tiers: [full_yarrow]
+
+  - id: lavender-tea
+    name: Lavender Tea
+    category: medicinal
+    subcategory: tea
+    unit: bag_15
+    retail_price_gbp: 4.50
+
+    production:
+      source_crops: [lavender-hidcote]
+      labour_minutes_per_unit: 15
+      other_inputs:
+        - ingredient: tea_bags
+          amount_units: 15
+          cost_per_unit_gbp: 0.03
+        - ingredient: box_packaging
+          amount_units: 1
+          cost_pence: 25
+      drying_days: 7
+
+    shelf_life_days: 365
+    storage: cool_dark_dry
+    available_weeks: [1, 52]
+    production_season_weeks: [26, 34]
+    box_tiers: [full_yarrow]
