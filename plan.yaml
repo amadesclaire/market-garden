@@ -30,7 +30,7 @@ tasks:
       Seed data is minimal — enough to demonstrate one complete crop cycle
       through the simulation. Do not fill in entries marked with comments
       like "# ... etc".
-    done: false
+    done: true
     context: >
       YAML files are the canonical source of truth. The application reads
       them at startup and syncs to SQLite. Shapes must match exactly what

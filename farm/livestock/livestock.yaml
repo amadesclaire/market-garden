@@ -1,0 +1,22 @@
+hens:
+  flock_size: 50
+  breed: Isa Brown
+  housing: Mobile Tractor
+  eggs_per_hen_per_week: 5.5
+  feed_kg_per_hen_per_day: 0.12
+  feed_cost_per_kg_pence: 65
+  seasonal_variation:
+    - week_start: 1
+      week_end: 8
+      multiplier: 0.6
+    - week_start: 40
+      week_end: 52
+      multiplier: 0.8
+
+hives:
+  count: 3
+  type: National
+  expected_honey_kg_per_hive_per_year: 15.0
+  inspection_interval_weeks: 2
+  forage_radius_km: 3.0
+  winter_feeding_weeks: [40, 44, 48, 4, 8]

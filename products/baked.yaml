@@ -1,76 +1,26 @@
-products:
-  - id: sourdough-ball
-    name: Sourdough Ball
-    category: baked
-    unit: loaf_400g
-    retail_price_gbp: 4.50
-
-    production:
-      inputs:
-        - ingredient: flour_strong_white
-          amount_g: 300
-          cost_per_kg_gbp: 0.85
-        - ingredient: flour_wholemeal
-          amount_g: 100
-          cost_per_kg_gbp: 1.10
-        - ingredient: salt
-          amount_g: 8
-          cost_per_kg_gbp: 0.60
-        - ingredient: starter
-          amount_g: 80
-          cost: 0
-      labour_minutes_per_loaf: 20
-      bake_day: tuesday
-      packaging_cost_gbp: 0.08
-
-    shelf_life_days: 5
-    available_weeks: [1, 52]
-    box_tiers: [field, larder, full_yarrow]
-
-  - id: meringue-kisses
-    name: Meringue Kisses
-    category: baked
-    unit: bag_12
-    retail_price_gbp: 4.00
-
-    production:
-      inputs:
-        - ingredient: egg_whites
-          amount_g: 120
-          cost: 0 # from farm hens, internal cost only
-        - ingredient: caster_sugar
-          amount_g: 240
-          cost_per_kg_gbp: 1.20
-      labour_minutes_per_batch: 25 # one batch = ~60 kisses / 5 bags
-      bake_temp_c: 100
-      bake_hours: 1.5
-      packaging_cost_gbp: 0.12
-
-    variants:
-      - id: meringue-lavender
-        name: Lavender Meringue Kisses
-        additional_input: dried_lavender_flowers
-        amount_g: 2
-      - id: meringue-rose
-        name: Rose Meringue Kisses
-        additional_input: rose_water
-        amount_ml: 5
-      - id: meringue-brown-sugar
-        name: Brown Sugar Meringues
-        substitute: muscovado_sugar
-
-    shelf_life_days: 21
-    storage: airtight_cool_dry
-    available_weeks: [1, 52]
-    seasonal_pairing:
-      - weeks: [20, 24]
-        pair_with: honeyberry
-      - weeks: [24, 28]
-        pair_with: strawberry
-      - weeks: [28, 36]
-        pair_with: raspberry
-      - weeks: [36, 42]
-        pair_with: blackberry
-
-    box_tiers: [larder, full_yarrow]
-    notes: Make during dry weather only. Store in airtight tins.
+- id: prod-sourdough
+  name: Sourdough Loaf
+  category: baked
+  subcategory: bread
+  source_crops: []
+  unit: loaf 800g
+  retail_price_pence: 450
+  shelf_life_days: 3
+  storage: ambient
+  available_week_start: 1
+  available_week_end: 52
+  production_season_week_start: 1
+  production_season_week_end: 52
+  box_tiers: ["larder", "full_yarrow"]
+  gift_suitable: false
+  inputs:
+    - ingredient: flour
+      amount: 500
+      unit: g
+      cost_per_kg_pence: 150
+  production:
+    bake_day: tuesday
+    bake_temp_c: 240
+    bake_hours: 0.75
+    labour_minutes_per_unit: 15
+    labour_rate_pence_per_hour: 1200

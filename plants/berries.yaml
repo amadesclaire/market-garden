@@ -1,907 +1,123 @@
-plants:
-  # All berries are perennials and use annual_cycle keyed to week-of-year.
-
-  - id: strawberry-elsanta
-    name: Strawberry
-    variety: Elsanta
-    category: berry
-    family: Rosaceae
-
-    cultivation:
-      plants_per_sqm: 4
-      established_year_behaviour: runners_year_one
-
-    yield:
-      expected_kg_per_sqm: 0.5
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 10]
-        color_hex: "#8B7355"
-      - stage: growth
-        weeks: [11, 18]
-        color_hex: "#90C840"
-      - stage: flowering
-        weeks: [19, 21]
-        color_hex: "#FFB7C5"
-        bee_forage_value: medium
-      - stage: harvestable
-        weeks: [22, 28]
-        color_hex: "#E83030"
-        description: June-July, pick every 2-3 days
-      - stage: post_harvest
-        weeks: [29, 44]
-        color_hex: "#70A830"
-        description: Runner production
-      - stage: dormant
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [19, 21]
-      value: medium
-
-  - id: raspberry-glen-ample
-    name: Raspberry
-    variety: Glen Ample
-    category: berry
-    family: Rosaceae
-    description: Summer-bearing, large fruit, spine-free
-
-    yield:
-      expected_kg_per_sqm: 0.8
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [field, larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 11]
-        color_hex: "#8B7355"
-      - stage: cane_growth
-        weeks: [12, 22]
-        color_hex: "#90C840"
-      - stage: flowering
-        weeks: [23, 25]
-        color_hex: "#FFB7C5"
-        bee_forage_value: medium
-      - stage: harvestable
-        weeks: [26, 32]
-        color_hex: "#C82060"
-        description: July-August
-      - stage: post_harvest
-        weeks: [33, 44]
-        color_hex: "#70A830"
-        description: Cut floricanes, primocanes growing on
-      - stage: dormant
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [23, 25]
-      value: medium
-
-  - id: raspberry-autumn-bliss
-    name: Raspberry
-    variety: Autumn Bliss
-    category: berry
-    family: Rosaceae
-    description: Autumn-bearing primocane, excellent flavour
-
-    yield:
-      expected_kg_per_sqm: 0.7
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [field, larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 11]
-        color_hex: "#8B7355"
-      - stage: cane_growth
-        weeks: [12, 29]
-        color_hex: "#90C840"
-      - stage: flowering
-        weeks: [30, 32]
-        color_hex: "#FFB7C5"
-        bee_forage_value: medium
-      - stage: harvestable
-        weeks: [33, 42]
-        color_hex: "#C82060"
-        description: August-October
-      - stage: senescence
-        weeks: [43, 44]
-        color_hex: "#806050"
-      - stage: dormant
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [30, 32]
-      value: medium
-
-  - id: blackcurrant-ben-lomond
-    name: Blackcurrant
-    variety: Ben Lomond
-    category: berry
-    family: Grossulariaceae
-
-    yield:
-      expected_kg_per_sqm: 0.6
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 2.00
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 9]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [10, 13]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [14, 16]
-        color_hex: "#D0D080"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [17, 26]
-        color_hex: "#508030"
-      - stage: harvestable
-        weeks: [27, 33]
-        color_hex: "#3A1060"
-        description: July-August, harvest in one pick
-      - stage: post_harvest
-        weeks: [34, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [14, 16]
-      value: high
-
-  - id: blackcurrant-ben-hope
-    name: Blackcurrant
-    variety: Ben Hope
-    category: berry
-    family: Grossulariaceae
-    description: Mildew-resistant, late season
-
-    yield:
-      expected_kg_per_sqm: 0.65
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 2.00
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 9]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [10, 13]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [15, 17]
-        color_hex: "#D0D080"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [17, 28]
-        color_hex: "#508030"
-      - stage: harvestable
-        weeks: [29, 35]
-        color_hex: "#3A1060"
-        description: Late July-August
-      - stage: post_harvest
-        weeks: [35, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [15, 17]
-      value: high
-
-  - id: redcurrant-rovada
-    name: Redcurrant
-    variety: Rovada
-    category: berry
-    family: Grossulariaceae
-    description: Late season, long strigs, high yield
-
-    yield:
-      expected_kg_per_sqm: 0.5
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 9]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [10, 13]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [14, 16]
-        color_hex: "#FFEECC"
-        bee_forage_value: medium
-      - stage: leafing
-        weeks: [16, 26]
-        color_hex: "#70B840"
-      - stage: ripening
-        weeks: [26, 29]
-        color_hex: "#E06060"
-      - stage: harvestable
-        weeks: [29, 34]
-        color_hex: "#E84040"
-        description: Late July-August
-      - stage: post_harvest
-        weeks: [34, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [14, 16]
-      value: medium
-
-  - id: whitecurrant-white-versailles
-    name: Whitecurrant
-    variety: White Versailles
-    category: berry
-    family: Grossulariaceae
-
-    yield:
-      expected_kg_per_sqm: 0.4
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 3.00
-      box_tiers: [full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 9]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [10, 13]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [14, 16]
-        color_hex: "#FFEECC"
-        bee_forage_value: medium
-      - stage: leafing
-        weeks: [16, 24]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [26, 31]
-        color_hex: "#D0D080"
-        description: Pale translucent berries, July
-      - stage: post_harvest
-        weeks: [31, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [14, 16]
-      value: medium
-
-  - id: gooseberry-invicta
-    name: Gooseberry
-    variety: Invicta
-    category: berry
-    family: Grossulariaceae
-    description: High yield, mildew-resistant green dessert
-
-    yield:
-      expected_kg_per_sqm: 0.5
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 2.00
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 8]
-        color_hex: "#8B7355"
-      - stage: flowering
-        weeks: [9, 12]
-        color_hex: "#C8D080"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [12, 20]
-        color_hex: "#70B840"
-      - stage: developing
-        weeks: [20, 24]
-        color_hex: "#90C040"
-      - stage: harvestable
-        weeks: [24, 30]
-        color_hex: "#A0C830"
-        description: June-July, thinnings good for cooking
-      - stage: post_harvest
-        weeks: [30, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [9, 12]
-      value: high
-
-  - id: gooseberry-hinnonmaki-red
-    name: Gooseberry
-    variety: Hinnonmäki Red
-    category: berry
-    family: Grossulariaceae
-    description: Finnish variety, sweet red dessert gooseberry
-
-    yield:
-      expected_kg_per_sqm: 0.4
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 8]
-        color_hex: "#8B7355"
-      - stage: flowering
-        weeks: [9, 12]
-        color_hex: "#C8D080"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [12, 20]
-        color_hex: "#70B840"
-      - stage: developing
-        weeks: [20, 25]
-        color_hex: "#A06080"
-      - stage: harvestable
-        weeks: [25, 31]
-        color_hex: "#C04060"
-        description: Sweet red, July
-      - stage: post_harvest
-        weeks: [31, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [9, 12]
-      value: high
-
-  - id: gooseberry-pax
-    name: Gooseberry
-    variety: Pax
-    category: berry
-    family: Grossulariaceae
-    description: Spine-free red dessert, easy picking
-
-    yield:
-      expected_kg_per_sqm: 0.4
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 8]
-        color_hex: "#8B7355"
-      - stage: flowering
-        weeks: [9, 12]
-        color_hex: "#C8D080"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [12, 20]
-        color_hex: "#70B840"
-      - stage: developing
-        weeks: [20, 25]
-        color_hex: "#A06080"
-      - stage: harvestable
-        weeks: [25, 31]
-        color_hex: "#C04060"
-        description: Red spine-free, July
-      - stage: post_harvest
-        weeks: [31, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [9, 12]
-      value: high
-
-  - id: honeyberry-borealis
-    name: Honeyberry
-    variety: Borealis
-    category: berry
-    family: Caprifoliaceae
-    description: Haskap type, very early — first soft fruit of the year
-
-    yield:
-      expected_kg_per_sqm: 0.3
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.15
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 3.50
-      box_tiers: [full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 7]
-        color_hex: "#8B7355"
-      - stage: flowering
-        weeks: [8, 11]
-        color_hex: "#FFFFC0"
-        bee_forage_value: high
-        description: Flowers before last frost risk — very early bee forage
-      - stage: leafing
-        weeks: [11, 17]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [18, 22]
-        color_hex: "#4060C0"
-        description: May-June, elongated blue berries
-      - stage: post_harvest
-        weeks: [22, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [8, 11]
-      value: high
-
-  - id: honeyberry-tundra
-    name: Honeyberry
-    variety: Tundra
-    category: berry
-    family: Caprifoliaceae
-
-    yield:
-      expected_kg_per_sqm: 0.3
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.15
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 3.50
-      box_tiers: [full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 7]
-        color_hex: "#8B7355"
-      - stage: flowering
-        weeks: [8, 11]
-        color_hex: "#FFFFC0"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [11, 17]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [18, 22]
-        color_hex: "#4060C0"
-        description: May-June
-      - stage: post_harvest
-        weeks: [22, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [8, 11]
-      value: high
-
-  - id: honeyberry-aurora
-    name: Honeyberry
-    variety: Aurora
-    category: berry
-    family: Caprifoliaceae
-    description: Slightly later than Borealis, larger fruit
-
-    yield:
-      expected_kg_per_sqm: 0.35
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.15
-      harvest_frequency: once
-
-    economics:
-      retail_value_per_unit_gbp: 3.50
-      box_tiers: [full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 7]
-        color_hex: "#8B7355"
-      - stage: flowering
-        weeks: [9, 12]
-        color_hex: "#FFFFC0"
-        bee_forage_value: high
-      - stage: leafing
-        weeks: [12, 18]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [19, 23]
-        color_hex: "#4060C0"
-        description: Late May-June, larger berries
-      - stage: post_harvest
-        weeks: [23, 44]
-        color_hex: "#70A830"
-      - stage: leaf_fall
-        weeks: [45, 48]
-        color_hex: "#C8A030"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [9, 12]
-      value: high
-
-  - id: tayberry
-    name: Tayberry
-    variety: Tayberry
-    category: berry
-    family: Rosaceae
-    description: Raspberry × blackberry cross, large dark red fruit
-
-    yield:
-      expected_kg_per_sqm: 0.6
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 3.00
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 11]
-        color_hex: "#8B7355"
-      - stage: cane_growth
-        weeks: [12, 22]
-        color_hex: "#90C840"
-      - stage: flowering
-        weeks: [23, 25]
-        color_hex: "#FFB7C5"
-        bee_forage_value: medium
-      - stage: harvestable
-        weeks: [26, 32]
-        color_hex: "#A01060"
-        description: July-August, elongated dark red fruit
-      - stage: post_harvest
-        weeks: [33, 44]
-        color_hex: "#70A830"
-      - stage: dormant
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [23, 25]
-      value: medium
-
-  - id: boysenberry
-    name: Boysenberry
-    variety: Boysenberry
-    category: berry
-    family: Rosaceae
-    description: Large maroon berry, raspberry-blackberry-loganberry cross
-
-    yield:
-      expected_kg_per_sqm: 0.5
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 3.00
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 11]
-        color_hex: "#8B7355"
-      - stage: cane_growth
-        weeks: [12, 23]
-        color_hex: "#90C840"
-      - stage: flowering
-        weeks: [24, 26]
-        color_hex: "#FFB7C5"
-        bee_forage_value: medium
-      - stage: harvestable
-        weeks: [27, 33]
-        color_hex: "#802050"
-        description: July-August
-      - stage: post_harvest
-        weeks: [34, 44]
-        color_hex: "#70A830"
-      - stage: dormant
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [24, 26]
-      value: medium
-
-  - id: loganberry-ly654
-    name: Loganberry
-    variety: LY654
-    category: berry
-    family: Rosaceae
-    description: Spine-free loganberry, large dark red fruit
-
-    yield:
-      expected_kg_per_sqm: 0.6
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.25
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 3.00
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 11]
-        color_hex: "#8B7355"
-      - stage: cane_growth
-        weeks: [12, 22]
-        color_hex: "#90C840"
-      - stage: flowering
-        weeks: [23, 25]
-        color_hex: "#FFB7C5"
-        bee_forage_value: medium
-      - stage: harvestable
-        weeks: [26, 33]
-        color_hex: "#C02040"
-        description: July-August, wine-red berries
-      - stage: post_harvest
-        weeks: [34, 44]
-        color_hex: "#70A830"
-      - stage: dormant
-        weeks: [45, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [23, 25]
-      value: medium
-
-  - id: blueberry-bluecrop
-    name: Blueberry
-    variety: Bluecrop
-    category: berry
-    family: Ericaceae
-    description: Mid-season, reliable high-yield variety
-
-    cultivation:
-      substrate: ericaceous
-      ph_range: [4.0, 5.5]
-
-    yield:
-      expected_kg_per_sqm: 0.4
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.125
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 10]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [11, 14]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [14, 17]
-        color_hex: "#FFFFFF"
-        bee_forage_value: medium
-      - stage: leafing
-        weeks: [17, 26]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [28, 36]
-        color_hex: "#4060C0"
-        description: July-September, multiple picks
-      - stage: post_harvest
-        weeks: [36, 42]
-        color_hex: "#70A830"
-      - stage: autumn_colour
-        weeks: [42, 48]
-        color_hex: "#E04020"
-        description: Spectacular autumn foliage
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [14, 17]
-      value: medium
-
-  - id: blueberry-chandler
-    name: Blueberry
-    variety: Chandler
-    category: berry
-    family: Ericaceae
-    description: Very large fruit, extended harvest season
-
-    cultivation:
-      substrate: ericaceous
-      ph_range: [4.0, 5.5]
-
-    yield:
-      expected_kg_per_sqm: 0.35
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.125
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 3.00
-      box_tiers: [full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 10]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [11, 14]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [15, 18]
-        color_hex: "#FFFFFF"
-        bee_forage_value: medium
-      - stage: leafing
-        weeks: [18, 28]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [29, 38]
-        color_hex: "#3050C0"
-        description: July-September, very large berries
-      - stage: post_harvest
-        weeks: [38, 42]
-        color_hex: "#70A830"
-      - stage: autumn_colour
-        weeks: [42, 48]
-        color_hex: "#E04020"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [15, 18]
-      value: medium
-
-  - id: blueberry-darrow
-    name: Blueberry
-    variety: Darrow
-    category: berry
-    family: Ericaceae
-    description: Late season, large firm berries, excellent storage
-
-    cultivation:
-      substrate: ericaceous
-      ph_range: [4.0, 5.5]
-
-    yield:
-      expected_kg_per_sqm: 0.35
-      harvest_unit: punnet
-      harvest_unit_size_kg: 0.125
-      harvest_frequency: weekly
-
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
-
-    annual_cycle:
-      - stage: dormant
-        weeks: [1, 10]
-        color_hex: "#8B7355"
-      - stage: budding
-        weeks: [11, 14]
-        color_hex: "#A0855A"
-      - stage: flowering
-        weeks: [16, 19]
-        color_hex: "#FFFFFF"
-        bee_forage_value: medium
-      - stage: leafing
-        weeks: [19, 30]
-        color_hex: "#70B840"
-      - stage: harvestable
-        weeks: [32, 40]
-        color_hex: "#4060C0"
-        description: August-October, latest blueberry
-      - stage: post_harvest
-        weeks: [40, 42]
-        color_hex: "#70A830"
-      - stage: autumn_colour
-        weeks: [42, 48]
-        color_hex: "#E04020"
-      - stage: dormant
-        weeks: [49, 52]
-        color_hex: "#8B7355"
-
-    bee_forage:
-      blossom_weeks: [16, 19]
-      value: medium
+- id: raspberry-autumn-bliss
+  name: Raspberry
+  variety: Autumn Bliss
+  category: berry
+  family: Rosaceae
+  description: Reliable autumn fruiting primocane
+  propagation: bare_root
+  kg_per_tree_at_maturity: 2.0
+  harvest_unit: punnet
+  harvest_unit_size_kg: 0.150
+  harvest_frequency: weekly
+  storage_weeks: 1
+  water: medium
+  sun: full
+  frost_tolerant: true
+  tree_cost_pence: 450
+  retail_value_per_unit_pence: 300
+  years_to_first_fruit: 1
+  years_to_full_production: 2
+  productive_life_years: 10
+  annual_cycle:
+    - stage: dormant
+      week_start: 1
+      week_end: 14
+      color_hex: "#8B5A2B"
+    - stage: leafing
+      week_start: 15
+      week_end: 22
+      color_hex: "#A0D468"
+    - stage: blossom
+      week_start: 23
+      week_end: 26
+      color_hex: "#FFFFFF"
+      bee_forage_value: high
+    - stage: fruiting
+      week_start: 27
+      week_end: 32
+      color_hex: "#E6E6FA"
+    - stage: harvest_ready
+      week_start: 33
+      week_end: 42
+      color_hex: "#DA4453"
+    - stage: post_harvest
+      week_start: 43
+      week_end: 46
+      color_hex: "#D770AD"
+    - stage: dormant
+      week_start: 47
+      week_end: 52
+      color_hex: "#8B5A2B"
+  bee_forage:
+    blossom_week_start: 23
+    blossom_week_end: 26
+    value: high
+  yield_by_year:
+    - year_number: 1
+      multiplier: 0.5
+    - year_number: 2
+      multiplier: 1.0
+
+- id: blackcurrant-ben-lomond
+  name: Blackcurrant
+  variety: Ben Lomond
+  category: berry
+  family: Grossulariaceae
+  description: High yielding, frost resistant, excellent for jam
+  propagation: hardwood_cutting
+  kg_per_tree_at_maturity: 4.5
+  harvest_unit: punnet
+  harvest_unit_size_kg: 0.250
+  harvest_frequency: once
+  storage_weeks: 1
+  water: medium
+  sun: partial
+  frost_tolerant: true
+  tree_cost_pence: 600
+  retail_value_per_unit_pence: 400
+  years_to_first_fruit: 2
+  years_to_full_production: 4
+  productive_life_years: 15
+  annual_cycle:
+    - stage: dormant
+      week_start: 1
+      week_end: 10
+      color_hex: "#8B5A2B"
+    - stage: leafing
+      week_start: 11
+      week_end: 14
+      color_hex: "#A0D468"
+    - stage: blossom
+      week_start: 15
+      week_end: 18
+      color_hex: "#E6E6FA"
+      bee_forage_value: medium
+    - stage: fruiting
+      week_start: 19
+      week_end: 26
+      color_hex: "#8CC152"
+    - stage: harvest_ready
+      week_start: 27
+      week_end: 30
+      color_hex: "#4A148C"
+    - stage: post_harvest
+      week_start: 31
+      week_end: 44
+      color_hex: "#D770AD"
+    - stage: dormant
+      week_start: 45
+      week_end: 52
+      color_hex: "#8B5A2B"
+  bee_forage:
+    blossom_week_start: 15
+    blossom_week_end: 18
+    value: medium
+  yield_by_year:
+    - year_number: 1
+      multiplier: 0.0
+    - year_number: 2
+      multiplier: 0.3
+    - year_number: 3
+      multiplier: 0.7
+    - year_number: 4
+      multiplier: 1.0

@@ -460,8 +460,8 @@ CREATE TABLE costs (
   amount_pence        INTEGER NOT NULL,
   date                TEXT NOT NULL,
   amortise_over_years INTEGER,
-  related_crop_id     TEXT REFERENCES plants(id),
-  related_bed_id      TEXT REFERENCES beds(id),
+  related_crop_id     TEXT REFERENCES plants(id) ON DELETE SET NULL,
+  related_bed_id      TEXT REFERENCES beds(id) ON DELETE SET NULL,
   notes               TEXT
 );
 
@@ -469,7 +469,7 @@ CREATE TABLE costs (
 CREATE TABLE members (
   id           TEXT PRIMARY KEY,
   name         TEXT NOT NULL,
-  email        TEXT NOT NULL,
+  email        TEXT NOT NULL UNIQUE,
   tier_id      TEXT NOT NULL REFERENCES share_tiers(id),
   drop_point   TEXT NOT NULL REFERENCES drop_points(id),
   start_week   INTEGER NOT NULL CHECK (start_week BETWEEN 1 AND 52),
