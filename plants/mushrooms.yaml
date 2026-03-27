@@ -1,80 +1,92 @@
 plants:
-  - id: oyster-mushroom
-    name: Oyster Mushroom
-    variety: Pearl
-    category: mushroom
-    family: Pleurotaceae
-    description: Fast-growing, mild flavour, straw substrate
+- id: oyster-mushroom
+  name: Oyster Mushroom
+  variety: Pearl
+  category: mushroom
+  family: Pleurotaceae
+  description: Fast-growing, mild flavour, straw substrate
 
-    cultivation:
-      substrate: straw
-      flush_interval_weeks: 3
+  cultivation:
+    substrate: straw
+    flush_interval_weeks: 3
 
-    yield:
-      expected_kg_per_sqm: 0.4
-      harvest_unit: weight
-      harvest_unit_size_kg: 0.2
-      harvest_frequency: weekly
+  yield:
+    expected_kg_per_sqm: 0.4
+    harvest_unit: weight
+    harvest_unit_size_kg: 0.2
+    harvest_frequency: weekly
 
-    requirements:
-      water: high
-      sun: shade
-      frost_tolerant: false
+  requirements:
+    water: high
+    sun: shade
+    frost_tolerant: false
 
-    economics:
-      retail_value_per_unit_gbp: 2.50
-      box_tiers: [larder, full_yarrow]
+  economics:
+    retail_value_per_unit_gbp: 2.50
+    box_tiers: [larder, full_yarrow]
 
     # Mushrooms don't have a seasonal growth cycle in the same way —
     # production is continuous with correct conditions. Modelled as
     # always-harvestable within the growing season.
-    annual_cycle:
-      - stage: off_season
-        weeks: [1, 14]
-        color_hex: "#8B7355"
-        description: Unheated house — production paused in winter
-      - stage: harvestable
-        weeks: [15, 44]
-        color_hex: "#E0D0B0"
-        description: Weekly flushes throughout growing season
-      - stage: off_season
-        weeks: [45, 52]
-        color_hex: "#8B7355"
+  annual_cycle:
+  - stage: off_season
+    weeks: [1, 14]
+    color_hex: "#8B7355"
+    description: Unheated house — production paused in winter
+  - stage: harvestable
+    weeks: [15, 44]
+    color_hex: "#E0D0B0"
+    description: Weekly flushes throughout growing season
+  - stage: off_season
+    weeks: [45, 52]
+    color_hex: "#8B7355"
 
-  - id: shiitake
-    name: Shiitake
-    variety: Donko
-    category: mushroom
-    family: Omphalotaceae
-    description: Oak log cultivation, rich umami flavour
+  visual:
+    shape: sprawling
+    canopy_radius_cm: 10
+    primary_colour_hex: '#E0D0B0'
+    fruit_colour_hex:
+    support_structure: false
+- id: shiitake
+  name: Shiitake
+  variety: Donko
+  category: mushroom
+  family: Omphalotaceae
+  description: Oak log cultivation, rich umami flavour
 
-    cultivation:
-      substrate: oak_log
-      flush_interval_weeks: 8
+  cultivation:
+    substrate: oak_log
+    flush_interval_weeks: 8
 
-    yield:
-      expected_kg_per_sqm: 0.2
-      harvest_unit: weight
-      harvest_unit_size_kg: 0.2
-      harvest_frequency: once
+  yield:
+    expected_kg_per_sqm: 0.2
+    harvest_unit: weight
+    harvest_unit_size_kg: 0.2
+    harvest_frequency: once
 
-    requirements:
-      water: medium
-      sun: shade
-      frost_tolerant: false
+  requirements:
+    water: medium
+    sun: shade
+    frost_tolerant: false
 
-    economics:
-      retail_value_per_unit_gbp: 3.50
-      box_tiers: [larder, full_yarrow]
+  economics:
+    retail_value_per_unit_gbp: 3.50
+    box_tiers: [larder, full_yarrow]
 
-    annual_cycle:
-      - stage: off_season
-        weeks: [1, 14]
-        color_hex: "#8B7355"
-      - stage: harvestable
-        weeks: [15, 44]
-        color_hex: "#C09060"
-        description: Periodic flushes triggered by soaking logs
-      - stage: off_season
-        weeks: [45, 52]
-        color_hex: "#8B7355"
+  annual_cycle:
+  - stage: off_season
+    weeks: [1, 14]
+    color_hex: "#8B7355"
+  - stage: harvestable
+    weeks: [15, 44]
+    color_hex: "#C09060"
+    description: Periodic flushes triggered by soaking logs
+  - stage: off_season
+    weeks: [45, 52]
+    color_hex: "#8B7355"
+  visual:
+    shape: sprawling
+    canopy_radius_cm: 10
+    primary_colour_hex: '#C09060'
+    fruit_colour_hex:
+    support_structure: false
