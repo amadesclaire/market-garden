@@ -451,3 +451,30 @@ CREATE TABLE drop_points (
   label    TEXT NOT NULL,
   location TEXT
 );
+
+-- Costs
+CREATE TABLE costs (
+  id                  TEXT PRIMARY KEY,
+  category            TEXT NOT NULL,
+  description         TEXT,
+  amount_pence        INTEGER NOT NULL,
+  date                TEXT NOT NULL,
+  amortise_over_years INTEGER,
+  related_crop_id     TEXT REFERENCES plants(id),
+  related_bed_id      TEXT REFERENCES beds(id),
+  notes               TEXT
+);
+
+-- Members
+CREATE TABLE members (
+  id           TEXT PRIMARY KEY,
+  name         TEXT NOT NULL,
+  email        TEXT NOT NULL,
+  tier_id      TEXT NOT NULL REFERENCES share_tiers(id),
+  drop_point   TEXT NOT NULL REFERENCES drop_points(id),
+  start_week   INTEGER NOT NULL CHECK (start_week BETWEEN 1 AND 52),
+  start_year   INTEGER NOT NULL,
+  skip_weeks   TEXT, -- JSON array of week numbers
+  active       INTEGER NOT NULL DEFAULT 1,
+  notes        TEXT
+);
